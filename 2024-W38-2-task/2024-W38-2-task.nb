@@ -1,0 +1,3984 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Wolfram 14.1' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       154,          7]
+NotebookDataLength[    167208,       3976]
+NotebookOptionsPosition[    147479,       3716]
+NotebookOutlinePosition[    147880,       3732]
+CellTagsIndexPosition[    147837,       3729]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[BoxData[
+ RowBox[{"file", "=", 
+  RowBox[{
+  "File", "[", 
+   "\"\<\\\\\\\\vmware-host\\\\Shared \
+Folders\\\\C\\\\Users\\\\peter\\\\Documents\\\\semesters-at-marshall\\\\2024-\
+fall-cs-515-101\\\\2024-W38-2.xlsx\>\"", "]"}]}]], "Input",
+ CellLabel->"In[35]:=",ExpressionUUID->"9252fbbb-f794-0a44-90c0-b2f5e29b7911"],
+
+Cell[BoxData[
+ RowBox[{"File", "[", 
+  TemplateBox[{
+   "\"\\\\\\\\vmware-host\\\\Shared \
+Folders\\\\C\\\\Users\\\\peter\\\\Documents\\\\semesters-at-marshall\\\\2024-\
+fall-cs-515-101\\\\2024-W38-2.xlsx\""},
+   "FileArgument"], "]"}]], "Output",
+ CellChangeTimes->{
+  3.9360320660395546`*^9, {3.9361912755196724`*^9, 3.93619130277948*^9}},
+ CellLabel->"Out[35]=",ExpressionUUID->"b0809a1e-2922-4743-9cfc-a3f130d5544f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Import", "[", "file", "]"}]], "Input",
+ CellChangeTimes->{{3.9361913171016216`*^9, 3.9361913184562798`*^9}},
+ CellLabel->"In[37]:=",ExpressionUUID->"e7ebcbaf-bac1-4342-a2b7-1b6443b82902"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Import", "nffil", 
+   "\"File \\!\\(\\*RowBox[{\\\"\\\\\\\"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+vmware-host\\\\\\\\\\\\\\\\Shared \
+Folders\\\\\\\\\\\\\\\\C\\\\\\\\\\\\\\\\Users\\\\\\\\\\\\\\\\peter\\\\\\\\\\\\\
+\\\\Documents\\\\\\\\\\\\\\\\semesters-at-marshall\\\\\\\\\\\\\\\\2024-fall-\
+cs-515-101\\\\\\\\\\\\\\\\2024-W38-2.xlsx\\\\\\\"\\\"}]\\) not found during \
+\\!\\(\\*RowBox[{\\\"Import\\\"}]\\).\"", 2, 37, 121, 25277939993703616885, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361913188244667`*^9},
+ CellLabel->
+  "During evaluation of \
+In[37]:=",ExpressionUUID->"4e81085e-f772-b042-a08f-18b95bbbede6"],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{3.9361913189554825`*^9},
+ CellLabel->"Out[37]=",ExpressionUUID->"caae00d3-6d72-5d4a-86eb-6bd079df28b0"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"data", "=", 
+  RowBox[{"Import", "[", 
+   RowBox[{"file", ",", 
+    RowBox[{"{", 
+     RowBox[{"\"\<Dataset\>\"", ",", "1"}], "}"}], ",", 
+    RowBox[{"\"\<HeaderLines\>\"", "->", 
+     RowBox[{"{", 
+      RowBox[{"1", ",", "1"}], "}"}]}]}], "]"}]}]], "Input",
+ CellLabel->"In[36]:=",ExpressionUUID->"7e56fdf3-3496-1a4e-9f5d-0b3bc1ac790c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Import", "nffil", 
+   "\"File \\!\\(\\*RowBox[{\\\"\\\\\\\"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+vmware-host\\\\\\\\\\\\\\\\Shared \
+Folders\\\\\\\\\\\\\\\\C\\\\\\\\\\\\\\\\Users\\\\\\\\\\\\\\\\peter\\\\\\\\\\\\\
+\\\\Documents\\\\\\\\\\\\\\\\semesters-at-marshall\\\\\\\\\\\\\\\\2024-fall-\
+cs-515-101\\\\\\\\\\\\\\\\2024-W38-2.xlsx\\\\\\\"\\\"}]\\) not found during \
+\\!\\(\\*RowBox[{\\\"Import\\\"}]\\).\"", 2, 36, 120, 25277939993703616885, 
+   "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{{3.9361912763158684`*^9, 3.936191304736513*^9}},
+ CellLabel->
+  "During evaluation of \
+In[36]:=",ExpressionUUID->"ddea6d35-d413-be48-88b0-d5b53d3fbd49"],
+
+Cell[BoxData["$Failed"], "Output",
+ CellChangeTimes->{
+  3.936032076731062*^9, {3.9361912764128437`*^9, 3.936191304856085*^9}},
+ CellLabel->"Out[36]=",ExpressionUUID->"870d168b-afb4-b54f-9734-f38c89227dc4"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"RelativeFrequency", "[", "list_", "]"}], ":=", 
+  FractionBox[
+   RowBox[{"Counts", "[", "list", "]"}], 
+   RowBox[{"Total", "[", 
+    RowBox[{"Counts", "[", "list", "]"}], "]"}]]}]], "Input",
+ CellChangeTimes->{{3.936033093215391*^9, 3.936033100943817*^9}},
+ CellLabel->"In[3]:=",ExpressionUUID->"22799ce0-3088-ef44-a3b4-b5e7d5ab664f"],
+
+Cell["For example,", "Text",
+ CellChangeTimes->{{3.936032143930332*^9, 
+  3.936032146497572*^9}},ExpressionUUID->"d0ca3b4e-06be-eb44-868d-\
+1c2742723703"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"data", "[", 
+  RowBox[{"Counts", ",", "\"\<class\>\""}], "]"}]], "Input",
+ CellLabel->"In[4]:=",ExpressionUUID->"70ca30b2-ee31-3343-ad0c-78c7eb4ae794"],
+
+Cell[BoxData[
+ RowBox[{"$Failed", "[", 
+  RowBox[{"Counts", ",", "\<\"class\"\>"}], "]"}]], "Output",
+ CellChangeTimes->{3.9360321595152817`*^9, 3.936191276494837*^9},
+ CellLabel->"Out[4]=",ExpressionUUID->"473e0a0c-78af-d24b-be3e-d98ac87f33b8"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Normal", "[", 
+  RowBox[{"Values", "[", 
+   RowBox[{"data", "[", 
+    RowBox[{"Counts", ",", "\"\<class\>\""}], "]"}], "]"}], "]"}]], "Input",
+ CellChangeTimes->{3.936032169987444*^9},
+ CellLabel->"In[5]:=",ExpressionUUID->"de9093ff-07c1-3345-a9e7-f1b09b22f341"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"Counts\\\", \\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 5, 2, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912766406403`*^9},
+ CellLabel->
+  "During evaluation of \
+In[5]:=",ExpressionUUID->"4381c9bf-25b7-0c45-9901-8a158ce4e347"],
+
+Cell[BoxData[
+ RowBox[{"Values", "[", 
+  RowBox[{"$Failed", "[", 
+   RowBox[{"Counts", ",", "\<\"class\"\>"}], "]"}], "]"}]], "Output",
+ CellChangeTimes->{3.936032170943369*^9, 3.9361912767253895`*^9},
+ CellLabel->"Out[5]=",ExpressionUUID->"486915e5-e24f-2047-b52b-022067f05020"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RelativeFrequency", "[", 
+  RowBox[{"Normal", "[", 
+   RowBox[{"Values", "[", 
+    RowBox[{"data", "[", 
+     RowBox[{"All", ",", "\"\<class\>\""}], "]"}], "]"}], "]"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.936033118745968*^9, 3.9360331190868855`*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"39895074-6833-4f4f-a9dd-ee65cdf17245"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 6, 3, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.93619127688789*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"2525b002-1f0d-dc40-b21d-ec2be4bfd9a9"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 6, 4, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191276979904*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"f172360e-d97d-5b4c-ae1e-1eb224116801"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 6, 5, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191277068918*^9},
+ CellLabel->
+  "During evaluation of \
+In[6]:=",ExpressionUUID->"9ff2f0f7-79f7-1545-a5dd-72b86d4367cb"],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"Counts", "[", 
+   RowBox[{"Values", "[", 
+    RowBox[{"$Failed", "[", 
+     RowBox[{"All", ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+  RowBox[{"Total", "[", 
+   RowBox[{"Counts", "[", 
+    RowBox[{"Values", "[", 
+     RowBox[{"$Failed", "[", 
+      RowBox[{"All", ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+   "]"}]]], "Output",
+ CellChangeTimes->{3.9360321516692677`*^9, 3.936033119390108*^9, 
+  3.9361912771632233`*^9},
+ CellLabel->"Out[6]=",ExpressionUUID->"7ddc9922-1c2a-bc42-8db3-eab69e4929fb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   SuperscriptBox["term", "2"], ",", 
+   RowBox[{"{", 
+    RowBox[{"term", ",", 
+     RowBox[{"RelativeFrequency", "[", 
+      RowBox[{"Normal", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"data", "[", 
+         RowBox[{"All", ",", "\"\<class\>\""}], "]"}], "]"}], "]"}], "]"}]}], 
+    "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.936032179296713*^9, 3.9360321905389404`*^9}, {
+  3.9360331328796577`*^9, 3.9360331334696026`*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"3b07560d-51f2-a243-b86f-18a93fa83b5c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 7, 6, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191277242855*^9},
+ CellLabel->
+  "During evaluation of \
+In[7]:=",ExpressionUUID->"4d6786dc-97a3-164c-b908-554fbe60a9e7"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 7, 7, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191277329891*^9},
+ CellLabel->
+  "During evaluation of \
+In[7]:=",ExpressionUUID->"804b8a36-224c-184c-bff1-588a8faa1e76"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 7, 8, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912774113255`*^9},
+ CellLabel->
+  "During evaluation of \
+In[7]:=",ExpressionUUID->"9362dc5d-25f1-6743-84ac-6260960a35b0"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "iterb", 
+   "\"Iterator \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"term\\\", \\\",\\\", \
+FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \
+\\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \
+\\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\
+\"}], RowBox[{\\\"Total\\\", \\\"[\\\", RowBox[{\\\"Counts\\\", \\\"[\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \
+\\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}]]}], \\\"}\\\"}]\\) does not have \
+appropriate bounds.\"", 2, 7, 9, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912774891415`*^9},
+ CellLabel->
+  "During evaluation of \
+In[7]:=",ExpressionUUID->"69632ffd-987e-5246-be71-dabe162bb7bc"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "iterb", 
+   "\"Iterator \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"term\\\", \\\",\\\", \
+FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \
+\\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \
+\\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\
+\"}], RowBox[{\\\"Total\\\", \\\"[\\\", RowBox[{\\\"Counts\\\", \\\"[\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \
+\\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}]]}], \\\"}\\\"}]\\) does not have \
+appropriate bounds.\"", 2, 7, 10, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191277564842*^9},
+ CellLabel->
+  "During evaluation of \
+In[7]:=",ExpressionUUID->"ba6840f6-e10c-4341-b0e5-5dc085b42045"],
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   SuperscriptBox["term", "2"], ",", 
+   RowBox[{"{", 
+    RowBox[{"term", ",", 
+     FractionBox[
+      RowBox[{"Counts", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"$Failed", "[", 
+         RowBox[{"All", ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+      RowBox[{"Total", "[", 
+       RowBox[{"Counts", "[", 
+        RowBox[{"Values", "[", 
+         RowBox[{"$Failed", "[", 
+          RowBox[{"All", ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+       "]"}]]}], "}"}]}], "]"}]], "Output",
+ CellChangeTimes->{
+  3.9360321908568535`*^9, {3.936033129660513*^9, 3.9360331340595837`*^9}, 
+   3.936191277638401*^9},
+ CellLabel->"Out[7]=",ExpressionUUID->"944459b2-3bb6-2b42-b331-072ad2220ebb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Sum", "[", 
+  RowBox[{
+   SuperscriptBox["term", "2"], ",", 
+   RowBox[{"{", 
+    RowBox[{"term", ",", 
+     RowBox[{"RelativeFrequency", "[", 
+      RowBox[{"Normal", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"data", "[", 
+         RowBox[{"All", ",", "\"\<class\>\""}], "]"}], "]"}], "]"}], "]"}]}], 
+    "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.936032179296713*^9, 3.9360321947246304`*^9}, 
+   3.9360331378034363`*^9},
+ CellLabel->"In[8]:=",ExpressionUUID->"36767dad-2758-e24a-a91d-28187c8e16ee"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 8, 11, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912777440243`*^9},
+ CellLabel->
+  "During evaluation of \
+In[8]:=",ExpressionUUID->"9be46f42-54c5-1940-8511-b9eac5a4bf6f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 8, 12, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912778829575`*^9},
+ CellLabel->
+  "During evaluation of \
+In[8]:=",ExpressionUUID->"4eb52a40-6503-b043-bf8d-a3e5a4736df9"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 8, 13, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912779759502`*^9},
+ CellLabel->
+  "During evaluation of \
+In[8]:=",ExpressionUUID->"5bb837f0-48fb-8540-b4d6-fe4142df3af5"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 8, 14, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912780708656`*^9},
+ CellLabel->
+  "During evaluation of \
+In[8]:=",ExpressionUUID->"2048191d-c9c9-3e46-8ad3-b7f61f21b3f3"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 8, 15, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.93619127817898*^9},
+ CellLabel->
+  "During evaluation of \
+In[8]:=",ExpressionUUID->"1c5ea807-2e6c-404b-b01f-2df848dcd06a"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Counts\\\", \\\"::\\\", \
+\\\"invl\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 8, 16, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912782649*^9},
+ CellLabel->
+  "During evaluation of \
+In[8]:=",ExpressionUUID->"ac14a280-dc3a-b94a-a977-ff8d01e64b47"],
+
+Cell[BoxData[
+ RowBox[{
+  UnderoverscriptBox["\[Sum]", "term", 
+   FractionBox[
+    RowBox[{"Counts", "[", 
+     RowBox[{"Values", "[", 
+      RowBox[{"$Failed", "[", 
+       RowBox[{"All", ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+    RowBox[{"Total", "[", 
+     RowBox[{"Counts", "[", 
+      RowBox[{"Values", "[", 
+       RowBox[{"$Failed", "[", 
+        RowBox[{"All", ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], "]"}]]], 
+  SuperscriptBox["term", "2"]}]], "Output",
+ CellChangeTimes->{3.936032195032955*^9, 3.936033138701952*^9, 
+  3.9361912790268936`*^9},
+ CellLabel->"Out[8]=",ExpressionUUID->"f0e3ddd7-50f0-8648-8cac-40fff4827ccf"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"1", "-", 
+  RowBox[{"Sum", "[", 
+   RowBox[{
+    SuperscriptBox["term", "2"], ",", 
+    RowBox[{"{", 
+     RowBox[{"term", ",", 
+      RowBox[{"RelativeFrequency", "[", 
+       RowBox[{"Normal", "[", 
+        RowBox[{"Values", "[", 
+         RowBox[{"data", "[", 
+          RowBox[{"All", ",", "\"\<class\>\""}], "]"}], "]"}], "]"}], "]"}]}],
+      "}"}]}], "]"}]}]], "Input",
+ CellChangeTimes->{{3.9360321976319847`*^9, 3.9360321991732674`*^9}, 
+   3.9360331418755646`*^9},
+ CellLabel->"In[9]:=",ExpressionUUID->"8e615769-2801-1349-95f1-64363ef08c90"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 9, 17, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912792258434`*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"247c267b-6bd3-b844-8143-c33efc26e210"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 9, 18, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912793145695`*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"fd159af4-55d7-904b-9615-9a970d9dbb24"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 9, 19, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912793954124`*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"b8851d27-3000-6b4e-8ea5-6b1a8c61dbf2"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 9, 20, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191279465931*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"2f920308-b9eb-f444-ac27-b8f7ec17007a"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 9, 21, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191279563328*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"2999491d-aad9-9a40-8869-3627f21408fc"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Counts\\\", \\\"::\\\", \
+\\\"invl\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 9, 22, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912796394043`*^9},
+ CellLabel->
+  "During evaluation of \
+In[9]:=",ExpressionUUID->"140706fd-8b90-7d45-ac4e-4ea846b71b6b"],
+
+Cell[BoxData[
+ RowBox[{"1", "-", 
+  RowBox[{
+   UnderoverscriptBox["\[Sum]", "term", 
+    FractionBox[
+     RowBox[{"Counts", "[", 
+      RowBox[{"Values", "[", 
+       RowBox[{"$Failed", "[", 
+        RowBox[{"All", ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+     RowBox[{"Total", "[", 
+      RowBox[{"Counts", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"$Failed", "[", 
+         RowBox[{"All", ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], "]"}]]], 
+   SuperscriptBox["term", "2"]}]}]], "Output",
+ CellChangeTimes->{3.936032199587204*^9, 3.936033145340193*^9, 
+  3.936191279718395*^9},
+ CellLabel->"Out[9]=",ExpressionUUID->"12ceb186-bf84-0e44-b241-c307c2abc261"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"N", "[", 
+  RowBox[{"1", "-", 
+   RowBox[{"Sum", "[", 
+    RowBox[{
+     SuperscriptBox["term", "2"], ",", 
+     RowBox[{"{", 
+      RowBox[{"term", ",", 
+       RowBox[{"RelativeFrequency", "[", 
+        RowBox[{"Normal", "[", 
+         RowBox[{"Values", "[", 
+          RowBox[{"data", "[", 
+           RowBox[{"All", ",", "\"\<class\>\""}], "]"}], "]"}], "]"}], 
+        "]"}]}], "}"}]}], "]"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.936032200309387*^9, 3.9360322007830544`*^9}, 
+   3.9360331432589474`*^9},
+ CellLabel->"In[10]:=",ExpressionUUID->"dacb5bc2-b153-aa49-8d2d-cb553dbe72f2"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 10, 23, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912797933865`*^9},
+ CellLabel->
+  "During evaluation of \
+In[10]:=",ExpressionUUID->"f304ae80-5ee4-fe46-b7f3-2e089b48f6c7"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 10, 24, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191279868376*^9},
+ CellLabel->
+  "During evaluation of \
+In[10]:=",ExpressionUUID->"f7cfec6f-d736-fe48-8c72-8858f147e2ca"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 10, 25, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912799323597`*^9},
+ CellLabel->
+  "During evaluation of \
+In[10]:=",ExpressionUUID->"452bcd1a-a9a4-8048-93c4-c13b034a5a08"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 10, 26, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191280002554*^9},
+ CellLabel->
+  "During evaluation of \
+In[10]:=",ExpressionUUID->"ccd0481f-3b77-9f47-b059-bb163ef76913"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 10, 27, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912800763493`*^9},
+ CellLabel->
+  "During evaluation of \
+In[10]:=",ExpressionUUID->"36f533a7-7dae-0841-ba3c-1cff95dec12c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Counts\\\", \\\"::\\\", \
+\\\"invl\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 10, 28, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912801475887`*^9},
+ CellLabel->
+  "During evaluation of \
+In[10]:=",ExpressionUUID->"e8ff599f-2376-3441-b5a8-3ded67b58db8"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NSum", "nslim", 
+   "\"Limit of summation \\!\\(\\*FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\
+\", RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \
+\\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\
+\\\"}]]\\) is not a number.\"", 2, 10, 29, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912802173424`*^9},
+ CellLabel->
+  "During evaluation of \
+In[10]:=",ExpressionUUID->"19532a32-0e25-274d-a014-25a03e689d84"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NSum", "nslim", 
+   "\"Limit of summation \\!\\(\\*FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\
+\", RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \
+\\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\
+\\\"}]]\\) is not a number.\"", 2, 10, 30, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912802873764`*^9},
+ CellLabel->
+  "During evaluation of \
+In[10]:=",ExpressionUUID->"25951365-e1b8-184f-a076-eb156ee25edc"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NSum", "nslim", 
+   "\"Limit of summation \\!\\(\\*FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\
+\", RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \
+\\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\
+\\\"}]]\\) is not a number.\"", 2, 10, 31, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191280361328*^9},
+ CellLabel->
+  "During evaluation of \
+In[10]:=",ExpressionUUID->"0c98c987-5297-1747-ba6c-525c7d88bab1"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NSum\\\", \\\"::\\\", \
+\\\"nslim\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 10, 32, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912804393635`*^9},
+ CellLabel->
+  "During evaluation of \
+In[10]:=",ExpressionUUID->"9829bb6f-7915-b748-9fb6-f109c6a78f64"],
+
+Cell[BoxData[
+ RowBox[{"1.`", "\[VeryThinSpace]", "-", 
+  RowBox[{"1.`", " ", 
+   RowBox[{"NSum", "[", 
+    RowBox[{
+     SuperscriptBox["term", "2"], ",", 
+     RowBox[{"{", 
+      RowBox[{"term", ",", 
+       FractionBox[
+        RowBox[{"Counts", "[", 
+         RowBox[{"Values", "[", 
+          RowBox[{"$Failed", "[", 
+           RowBox[{"All", ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+        RowBox[{"Total", "[", 
+         RowBox[{"Counts", "[", 
+          RowBox[{"Values", "[", 
+           RowBox[{"$Failed", "[", 
+            RowBox[{"All", ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+         "]"}]]}], "}"}]}], "]"}]}]}]], "Output",
+ CellChangeTimes->{3.9360322011580257`*^9, 3.9360331455111446`*^9, 
+  3.9361912805191193`*^9},
+ CellLabel->"Out[10]=",ExpressionUUID->"4ef4fb69-15ce-8944-b511-760a1af8446d"]
+}, Open  ]],
+
+Cell["The initial Gini index is 0.5.", "Text",
+ CellChangeTimes->{{3.9360322034876328`*^9, 
+  3.9360322106420937`*^9}},ExpressionUUID->"ec11eb3f-cdcc-3042-b9f5-\
+571035cfc48a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FromRelativeFrequencyToGiniIndex", "[", "list_", "]"}], ":=", 
+  RowBox[{"1", "-", 
+   RowBox[{"Sum", "[", 
+    RowBox[{
+     SuperscriptBox["term", "2"], ",", 
+     RowBox[{"{", 
+      RowBox[{"term", ",", "list"}], "}"}]}], "]"}]}]}]], "Input",
+ CellLabel->"In[11]:=",ExpressionUUID->"c82e23e9-c0bf-1a4c-93e1-35137a01229a"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"GiniIndex", "[", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"\"\<Data\>\"", "->", "data_"}], ",", 
+     RowBox[{"\"\<Attribute\>\"", "->", "attribute_"}], ",", 
+     RowBox[{"\"\<outcome\>\"", "->", "outcome_"}]}], "|>"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"Values", "[", 
+     RowBox[{"RelativeFrequency", "[", 
+      RowBox[{"Normal", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"data", "[", 
+         RowBox[{"All", ",", "attribute"}], "]"}], "]"}], "]"}], "]"}], "]"}],
+     ")"}], ".", 
+   RowBox[{"(", 
+    RowBox[{"FromRelativeFrequencyToGiniIndex", "/@", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Values", "[", 
+        RowBox[{"RelativeFrequency", "[", 
+         RowBox[{"Normal", "[", 
+          RowBox[{"Values", "[", 
+           RowBox[{"data", "[", 
+            RowBox[{
+             RowBox[{"Select", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Slot", "[", "attribute", "]"}], "==", "value"}], 
+               "&"}], "]"}], ",", "outcome"}], "]"}], "]"}], "]"}], "]"}], 
+        "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"value", ",", 
+         RowBox[{"Normal", "[", 
+          RowBox[{"Values", "[", 
+           RowBox[{"data", "[", 
+            RowBox[{"DeleteDuplicates", ",", "attribute"}], "]"}], "]"}], 
+          "]"}]}], "}"}]}], "]"}]}], ")"}]}]}]], "Input",
+ CellChangeTimes->{
+  3.9360331673224964`*^9, {3.9360332041013107`*^9, 3.9360333310177917`*^9}},
+ CellLabel->"In[12]:=",ExpressionUUID->"a7e26fc5-3899-7246-a7d8-11b0a19ae838"],
+
+Cell["\<\
+Let\[CloseCurlyQuote]s compute the exact and the numeric values for the \
+different types.\
+\>", "Text",
+ CellChangeTimes->{{3.9360322849251976`*^9, 
+  3.9360322951891575`*^9}},ExpressionUUID->"e35deced-d3f2-ad48-8e63-\
+d9571b33fe64"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"#", ",", 
+     RowBox[{"N", "[", "#", "]"}]}], "}"}], "&"}], "@", 
+  RowBox[{"GiniIndex", "[", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"\"\<Data\>\"", "->", "data"}], ",", 
+     RowBox[{"\"\<Attribute\>\"", "->", "\"\<male?\>\""}], ",", 
+     RowBox[{"\"\<outcome\>\"", "->", "\"\<class\>\""}]}], "|>"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.93576156576145*^9, 3.935761618507374*^9}, {
+  3.9357617620620937`*^9, 3.9357617763084393`*^9}, {3.936032263294817*^9, 
+  3.936032270812048*^9}},
+ CellLabel->"In[13]:=",ExpressionUUID->"7f86e8fe-a6bc-9846-bae0-fe9c61b439f6"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"male?\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 13, 33, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.93619128065732*^9},
+ CellLabel->
+  "During evaluation of \
+In[13]:=",ExpressionUUID->"f7f41de5-2da8-e24a-885d-dfe342d63760"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"male?\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 13, 34, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912807293243`*^9},
+ CellLabel->
+  "During evaluation of \
+In[13]:=",ExpressionUUID->"65d1ade3-6065-4544-86df-82122017ad88"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"male?\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 13, 35, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191280807665*^9},
+ CellLabel->
+  "During evaluation of \
+In[13]:=",ExpressionUUID->"3f9ce58d-cd9d-ac48-b37c-a363e670a395"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"male?\\\\\\\"\\\"}], \\\"]\\\"}], \
+\\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"male?\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\
+\\\"}]]\\) is not a valid Association or a list of rules.\"", 2, 13, 36, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912809014397`*^9},
+ CellLabel->
+  "During evaluation of \
+In[13]:=",ExpressionUUID->"d2c0aaa2-b467-c049-a24b-bed43b977d08"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \\\"\\\\\\\"male?\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 13, 37, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912809825306`*^9},
+ CellLabel->
+  "During evaluation of \
+In[13]:=",ExpressionUUID->"54f64dae-08e0-0c4a-b780-059a538d9c5f"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Values\\\", \\\"::\\\", \
+\\\"invrl\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 13, 38, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912810533466`*^9},
+ CellLabel->
+  "During evaluation of \
+In[13]:=",ExpressionUUID->"57ef4f50-cdc2-a040-a965-b5d45554bf37"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "iterb", 
+   "\"Iterator \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"value\\\", \\\",\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \\\"\\\\\\\"male?\\\\\\\"\\\"}], \
+\\\"]\\\"}], \\\"]\\\"}]}], \\\"}\\\"}]\\) does not have appropriate \
+bounds.\"", 2, 13, 39, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191281125395*^9},
+ CellLabel->
+  "During evaluation of \
+In[13]:=",ExpressionUUID->"1b8a2c90-e6fb-1d48-88a4-db41990bb7ef"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "iterb", 
+   "\"Iterator \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"value\\\", \\\",\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \\\"\\\\\\\"male?\\\\\\\"\\\"}], \
+\\\"]\\\"}], \\\"]\\\"}]}], \\\"}\\\"}]\\) does not have appropriate \
+bounds.\"", 2, 13, 40, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912811954765`*^9},
+ CellLabel->
+  "During evaluation of \
+In[13]:=",ExpressionUUID->"c380aaed-4204-ee4d-919c-a0f3de2422fb"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "nliter", 
+   "\"Non-list iterator \\!\\(\\*RowBox[{\\\"FromRelativeFrequencyToGiniIndex\
+\\\", \\\"[\\\", RowBox[{\\\"{\\\", RowBox[{\\\"value\\\", \\\",\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \\\"\\\\\\\"male?\\\\\\\"\\\"}], \
+\\\"]\\\"}], \\\"]\\\"}]}], \\\"}\\\"}], \\\"]\\\"}]\\) at position \
+\\!\\(\\*RowBox[{\\\"2\\\"}]\\) does not evaluate to a real numeric value.\"",
+    2, 13, 41, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912812743225`*^9},
+ CellLabel->
+  "During evaluation of \
+In[13]:=",ExpressionUUID->"30be4add-5bad-1a40-bc05-f1b37227b2ee"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Values", "[", 
+     FractionBox[
+      RowBox[{"Counts", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"$Failed", "[", 
+         RowBox[{"All", ",", "\<\"male?\"\>"}], "]"}], "]"}], "]"}], 
+      RowBox[{"Total", "[", 
+       RowBox[{"Counts", "[", 
+        RowBox[{"Values", "[", 
+         RowBox[{"$Failed", "[", 
+          RowBox[{"All", ",", "\<\"male?\"\>"}], "]"}], "]"}], "]"}], "]"}]], 
+     "]"}], ".", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"FromRelativeFrequencyToGiniIndex", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"RelativeFrequency", "[", 
+         RowBox[{"Normal", "[", 
+          RowBox[{"Values", "[", 
+           RowBox[{"$Failed", "[", 
+            RowBox[{
+             RowBox[{"Select", "[", 
+              RowBox[{
+               RowBox[{"#\"male?\"", "\[Equal]", "value"}], "&"}], "]"}], 
+             ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], "]"}], "]"}], "]"}],
+       ",", 
+      RowBox[{"FromRelativeFrequencyToGiniIndex", "[", 
+       RowBox[{"{", 
+        RowBox[{"value", ",", 
+         RowBox[{"Values", "[", 
+          RowBox[{"$Failed", "[", 
+           RowBox[{"DeleteDuplicates", ",", "\<\"male?\"\>"}], "]"}], "]"}]}],
+         "}"}], "]"}]}], "]"}]}], ",", 
+   RowBox[{
+    RowBox[{"Values", "[", 
+     FractionBox[
+      RowBox[{"Counts", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"$Failed", "[", 
+         RowBox[{"All", ",", "\<\"male?\"\>"}], "]"}], "]"}], "]"}], 
+      RowBox[{"Total", "[", 
+       RowBox[{"Counts", "[", 
+        RowBox[{"Values", "[", 
+         RowBox[{"$Failed", "[", 
+          RowBox[{"All", ",", "\<\"male?\"\>"}], "]"}], "]"}], "]"}], "]"}]], 
+     "]"}], ".", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"FromRelativeFrequencyToGiniIndex", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"RelativeFrequency", "[", 
+         RowBox[{"Normal", "[", 
+          RowBox[{"Values", "[", 
+           RowBox[{"$Failed", "[", 
+            RowBox[{
+             RowBox[{"Select", "[", 
+              RowBox[{
+               RowBox[{"#\"male?\"", "\[Equal]", "value"}], "&"}], "]"}], 
+             ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], "]"}], "]"}], "]"}],
+       ",", 
+      RowBox[{"FromRelativeFrequencyToGiniIndex", "[", 
+       RowBox[{"{", 
+        RowBox[{"value", ",", 
+         RowBox[{"Values", "[", 
+          RowBox[{"$Failed", "[", 
+           RowBox[{"DeleteDuplicates", ",", "\<\"male?\"\>"}], "]"}], "]"}]}],
+         "}"}], "]"}]}], "]"}]}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.935761595551832*^9, 3.9357616188414993`*^9}, {
+   3.93576178151478*^9, 3.9357617945814457`*^9}, 3.936032271367037*^9, 
+   3.936033333374773*^9, 3.9361912813414116`*^9},
+ CellLabel->"Out[13]=",ExpressionUUID->"44bfda65-3a48-bc4c-a9a0-446509c189b6"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"#", ",", 
+     RowBox[{"N", "[", "#", "]"}]}], "}"}], "&"}], "@", 
+  RowBox[{"GiniIndex", "[", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"\"\<Data\>\"", "->", "data"}], ",", 
+     RowBox[{"\"\<Attribute\>\"", "->", "\"\<car_type\>\""}], ",", 
+     RowBox[{"\"\<outcome\>\"", "->", "\"\<class\>\""}]}], "|>"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.93576156576145*^9, 3.9357616331868534`*^9}, {
+   3.9357617696142178`*^9, 3.9357617794850693`*^9}, 3.9360322755228634`*^9},
+ CellLabel->"In[14]:=",ExpressionUUID->"c5f679a6-929a-2c4d-ba85-15db82894d8e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"car_type\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 14, 42, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191281420393*^9},
+ CellLabel->
+  "During evaluation of \
+In[14]:=",ExpressionUUID->"a66be5f7-5de7-634e-bb9c-220e37b3ca6c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"car_type\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 14, 43, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912814958344`*^9},
+ CellLabel->
+  "During evaluation of \
+In[14]:=",ExpressionUUID->"3f48282d-42d7-9f4d-8f88-8c48687fd805"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"car_type\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 14, 44, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191281589321*^9},
+ CellLabel->
+  "During evaluation of \
+In[14]:=",ExpressionUUID->"8e20e0e4-d63b-2040-be4b-06c3acfcfac6"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"car_type\\\\\\\"\\\"}], \
+\\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"car_type\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\
+\"]\\\"}]]\\) is not a valid Association or a list of rules.\"", 2, 14, 45, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191281669363*^9},
+ CellLabel->
+  "During evaluation of \
+In[14]:=",ExpressionUUID->"ed274212-b65f-9b4a-8a46-66610326b890"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \
+\\\"\\\\\\\"car_type\\\\\\\"\\\"}], \\\"]\\\"}]\\) is not a valid Association \
+or a list of rules.\"", 2, 14, 46, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912817513256`*^9},
+ CellLabel->
+  "During evaluation of \
+In[14]:=",ExpressionUUID->"4d75b330-bbb9-2940-a7c4-19cc6cb0e15a"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Values\\\", \\\"::\\\", \
+\\\"invrl\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 14, 47, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912818267593`*^9},
+ CellLabel->
+  "During evaluation of \
+In[14]:=",ExpressionUUID->"2c8519ae-7230-a64e-b839-eb452a89bd26"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "iterb", 
+   "\"Iterator \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"value\\\", \\\",\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \
+\\\"\\\\\\\"car_type\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]}], \
+\\\"}\\\"}]\\) does not have appropriate bounds.\"", 2, 14, 48, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191281895342*^9},
+ CellLabel->
+  "During evaluation of \
+In[14]:=",ExpressionUUID->"bd9c9842-a0ac-b840-9cb4-01f683bb7a50"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "iterb", 
+   "\"Iterator \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"value\\\", \\\",\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \
+\\\"\\\\\\\"car_type\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]}], \
+\\\"}\\\"}]\\) does not have appropriate bounds.\"", 2, 14, 49, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912819713993`*^9},
+ CellLabel->
+  "During evaluation of \
+In[14]:=",ExpressionUUID->"3ba7cfc2-63b7-ef42-b2fc-ebe0b65a4410"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "nliter", 
+   "\"Non-list iterator \\!\\(\\*RowBox[{\\\"FromRelativeFrequencyToGiniIndex\
+\\\", \\\"[\\\", RowBox[{\\\"{\\\", RowBox[{\\\"value\\\", \\\",\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \
+\\\"\\\\\\\"car_type\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]}], \\\"}\\\"}], \
+\\\"]\\\"}]\\) at position \\!\\(\\*RowBox[{\\\"2\\\"}]\\) does not evaluate \
+to a real numeric value.\"", 2, 14, 50, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191282045391*^9},
+ CellLabel->
+  "During evaluation of \
+In[14]:=",ExpressionUUID->"5f2e38b2-ba65-754a-9521-f9b6e79bb33b"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Values", "[", 
+     FractionBox[
+      RowBox[{"Counts", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"$Failed", "[", 
+         RowBox[{"All", ",", "\<\"car_type\"\>"}], "]"}], "]"}], "]"}], 
+      RowBox[{"Total", "[", 
+       RowBox[{"Counts", "[", 
+        RowBox[{"Values", "[", 
+         RowBox[{"$Failed", "[", 
+          RowBox[{"All", ",", "\<\"car_type\"\>"}], "]"}], "]"}], "]"}], 
+       "]"}]], "]"}], ".", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"FromRelativeFrequencyToGiniIndex", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"RelativeFrequency", "[", 
+         RowBox[{"Normal", "[", 
+          RowBox[{"Values", "[", 
+           RowBox[{"$Failed", "[", 
+            RowBox[{
+             RowBox[{"Select", "[", 
+              RowBox[{
+               RowBox[{"#\"car_type\"", "\[Equal]", "value"}], "&"}], "]"}], 
+             ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], "]"}], "]"}], "]"}],
+       ",", 
+      RowBox[{"FromRelativeFrequencyToGiniIndex", "[", 
+       RowBox[{"{", 
+        RowBox[{"value", ",", 
+         RowBox[{"Values", "[", 
+          RowBox[{"$Failed", "[", 
+           RowBox[{"DeleteDuplicates", ",", "\<\"car_type\"\>"}], "]"}], 
+          "]"}]}], "}"}], "]"}]}], "]"}]}], ",", 
+   RowBox[{
+    RowBox[{"Values", "[", 
+     FractionBox[
+      RowBox[{"Counts", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"$Failed", "[", 
+         RowBox[{"All", ",", "\<\"car_type\"\>"}], "]"}], "]"}], "]"}], 
+      RowBox[{"Total", "[", 
+       RowBox[{"Counts", "[", 
+        RowBox[{"Values", "[", 
+         RowBox[{"$Failed", "[", 
+          RowBox[{"All", ",", "\<\"car_type\"\>"}], "]"}], "]"}], "]"}], 
+       "]"}]], "]"}], ".", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"FromRelativeFrequencyToGiniIndex", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"RelativeFrequency", "[", 
+         RowBox[{"Normal", "[", 
+          RowBox[{"Values", "[", 
+           RowBox[{"$Failed", "[", 
+            RowBox[{
+             RowBox[{"Select", "[", 
+              RowBox[{
+               RowBox[{"#\"car_type\"", "\[Equal]", "value"}], "&"}], "]"}], 
+             ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], "]"}], "]"}], "]"}],
+       ",", 
+      RowBox[{"FromRelativeFrequencyToGiniIndex", "[", 
+       RowBox[{"{", 
+        RowBox[{"value", ",", 
+         RowBox[{"Values", "[", 
+          RowBox[{"$Failed", "[", 
+           RowBox[{"DeleteDuplicates", ",", "\<\"car_type\"\>"}], "]"}], 
+          "]"}]}], "}"}], "]"}]}], "]"}]}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.935761633581167*^9, {3.9357617837858925`*^9, 3.935761794773409*^9}, 
+   3.936032276752922*^9, 3.9360333395675488`*^9, 3.936191282120409*^9},
+ CellLabel->"Out[14]=",ExpressionUUID->"33793abc-606a-1849-9164-d714229788bb"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"#", ",", 
+     RowBox[{"N", "[", "#", "]"}]}], "}"}], "&"}], "@", 
+  RowBox[{"GiniIndex", "[", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"\"\<Data\>\"", "->", "data"}], ",", 
+     RowBox[{"\"\<Attribute\>\"", "->", "\"\<shirt_size\>\""}], ",", 
+     RowBox[{"\"\<outcome\>\"", "->", "\"\<class\>\""}]}], "|>"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.93576156576145*^9, 3.935761641823551*^9}, {
+   3.935761787012972*^9, 3.935761791008127*^9}, 3.936032279394785*^9},
+ CellLabel->"In[15]:=",ExpressionUUID->"c552846a-fd04-3a40-a49e-ebef9684ab66"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"shirt_size\\\\\\\"\\\"}], \\\"]\\\
+\"}]\\) is not a valid Association or a list of rules.\"", 2, 15, 51, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191282260462*^9},
+ CellLabel->
+  "During evaluation of \
+In[15]:=",ExpressionUUID->"4998d4de-c0b9-2f4f-b9b9-bff6cc9b90ce"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"shirt_size\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 15, 52, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912823455544`*^9},
+ CellLabel->
+  "During evaluation of \
+In[15]:=",ExpressionUUID->"b3555b01-59da-4845-b55f-2e655d356eb8"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"shirt_size\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 15, 53, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191282429344*^9},
+ CellLabel->
+  "During evaluation of \
+In[15]:=",ExpressionUUID->"d41968cc-a21c-a24f-bb4d-349d2251d0e1"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"shirt_size\\\\\\\"\\\"}], \\\"]\\\
+\"}], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"shirt_size\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \
+\\\"]\\\"}]]\\) is not a valid Association or a list of rules.\"", 2, 15, 54, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191282502346*^9},
+ CellLabel->
+  "During evaluation of \
+In[15]:=",ExpressionUUID->"0cbc71a7-6e52-4741-9551-d910af93538e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \\\"\\\\\\\"shirt_size\\\\\\\"\\\
+\"}], \\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 15,
+    55, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191282581341*^9},
+ CellLabel->
+  "During evaluation of \
+In[15]:=",ExpressionUUID->"6cd99ea1-c43a-1842-b99c-bf9a90f37809"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Values\\\", \\\"::\\\", \
+\\\"invrl\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 15, 56, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912826647015`*^9},
+ CellLabel->
+  "During evaluation of \
+In[15]:=",ExpressionUUID->"2f1e0321-b2cc-0547-aab3-bf9027f556c7"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "iterb", 
+   "\"Iterator \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"value\\\", \\\",\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \\\"\\\\\\\"shirt_size\\\\\\\"\\\
+\"}], \\\"]\\\"}], \\\"]\\\"}]}], \\\"}\\\"}]\\) does not have appropriate \
+bounds.\"", 2, 15, 57, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191282735525*^9},
+ CellLabel->
+  "During evaluation of \
+In[15]:=",ExpressionUUID->"3abd905e-71e4-c54a-ae9d-0ee9288930cb"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "iterb", 
+   "\"Iterator \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"value\\\", \\\",\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \\\"\\\\\\\"shirt_size\\\\\\\"\\\
+\"}], \\\"]\\\"}], \\\"]\\\"}]}], \\\"}\\\"}]\\) does not have appropriate \
+bounds.\"", 2, 15, 58, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912828044395`*^9},
+ CellLabel->
+  "During evaluation of \
+In[15]:=",ExpressionUUID->"04525cfd-7552-3147-88ec-3d71e979d7c5"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "nliter", 
+   "\"Non-list iterator \\!\\(\\*RowBox[{\\\"FromRelativeFrequencyToGiniIndex\
+\\\", \\\"[\\\", RowBox[{\\\"{\\\", RowBox[{\\\"value\\\", \\\",\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \\\"\\\\\\\"shirt_size\\\\\\\"\\\
+\"}], \\\"]\\\"}], \\\"]\\\"}]}], \\\"}\\\"}], \\\"]\\\"}]\\) at position \\!\
+\\(\\*RowBox[{\\\"2\\\"}]\\) does not evaluate to a real numeric value.\"", 2,
+    15, 59, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191282877407*^9},
+ CellLabel->
+  "During evaluation of \
+In[15]:=",ExpressionUUID->"a5df45f6-8d13-4844-ad6d-8c571b62ff3e"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Values", "[", 
+     FractionBox[
+      RowBox[{"Counts", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"$Failed", "[", 
+         RowBox[{"All", ",", "\<\"shirt_size\"\>"}], "]"}], "]"}], "]"}], 
+      RowBox[{"Total", "[", 
+       RowBox[{"Counts", "[", 
+        RowBox[{"Values", "[", 
+         RowBox[{"$Failed", "[", 
+          RowBox[{"All", ",", "\<\"shirt_size\"\>"}], "]"}], "]"}], "]"}], 
+       "]"}]], "]"}], ".", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"FromRelativeFrequencyToGiniIndex", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"RelativeFrequency", "[", 
+         RowBox[{"Normal", "[", 
+          RowBox[{"Values", "[", 
+           RowBox[{"$Failed", "[", 
+            RowBox[{
+             RowBox[{"Select", "[", 
+              RowBox[{
+               RowBox[{"#\"shirt_size\"", "\[Equal]", "value"}], "&"}], "]"}],
+              ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], "]"}], "]"}], 
+       "]"}], ",", 
+      RowBox[{"FromRelativeFrequencyToGiniIndex", "[", 
+       RowBox[{"{", 
+        RowBox[{"value", ",", 
+         RowBox[{"Values", "[", 
+          RowBox[{"$Failed", "[", 
+           RowBox[{"DeleteDuplicates", ",", "\<\"shirt_size\"\>"}], "]"}], 
+          "]"}]}], "}"}], "]"}]}], "]"}]}], ",", 
+   RowBox[{
+    RowBox[{"Values", "[", 
+     FractionBox[
+      RowBox[{"Counts", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"$Failed", "[", 
+         RowBox[{"All", ",", "\<\"shirt_size\"\>"}], "]"}], "]"}], "]"}], 
+      RowBox[{"Total", "[", 
+       RowBox[{"Counts", "[", 
+        RowBox[{"Values", "[", 
+         RowBox[{"$Failed", "[", 
+          RowBox[{"All", ",", "\<\"shirt_size\"\>"}], "]"}], "]"}], "]"}], 
+       "]"}]], "]"}], ".", 
+    RowBox[{"Table", "[", 
+     RowBox[{
+      RowBox[{"FromRelativeFrequencyToGiniIndex", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"RelativeFrequency", "[", 
+         RowBox[{"Normal", "[", 
+          RowBox[{"Values", "[", 
+           RowBox[{"$Failed", "[", 
+            RowBox[{
+             RowBox[{"Select", "[", 
+              RowBox[{
+               RowBox[{"#\"shirt_size\"", "\[Equal]", "value"}], "&"}], "]"}],
+              ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], "]"}], "]"}], 
+       "]"}], ",", 
+      RowBox[{"FromRelativeFrequencyToGiniIndex", "[", 
+       RowBox[{"{", 
+        RowBox[{"value", ",", 
+         RowBox[{"Values", "[", 
+          RowBox[{"$Failed", "[", 
+           RowBox[{"DeleteDuplicates", ",", "\<\"shirt_size\"\>"}], "]"}], 
+          "]"}]}], "}"}], "]"}]}], "]"}]}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.935761642185114*^9, {3.935761791531681*^9, 3.9357617948883133`*^9}, 
+   3.936032280354494*^9, 3.9360333408393993`*^9, 3.936191282956093*^9},
+ CellLabel->"Out[15]=",ExpressionUUID->"29c6467f-6d8a-4448-8565-f27f92342d4e"]
+}, Open  ]],
+
+Cell["The following function will calculate which one we want.", "Text",
+ CellChangeTimes->{{3.9360323062597694`*^9, 
+  3.936032314027933*^9}},ExpressionUUID->"a3b4317a-3473-8d40-83c9-\
+3c1ac411c6b0"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CalculateAttributeToSplitOnByGiniIndex", "[", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"\"\<Data\>\"", "->", "data_"}], ",", 
+     RowBox[{"\"\<outcome\>\"", "->", "outcome_"}]}], "|>"}], "]"}], ":=", 
+  RowBox[{"First", "[", 
+   RowBox[{"Keys", "[", 
+    RowBox[{"Sort", "[", 
+     RowBox[{"AssociationMap", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"GiniIndex", "[", 
+         RowBox[{"<|", 
+          RowBox[{
+           RowBox[{"\"\<Data\>\"", "->", "data"}], ",", 
+           RowBox[{"\"\<Attribute\>\"", "->", "#"}], ",", 
+           RowBox[{"\"\<outcome\>\"", "->", "\"\<class\>\""}]}], "|>"}], 
+         "]"}], "&"}], ",", 
+       RowBox[{"DeleteCases", "[", 
+        RowBox[{
+         RowBox[{"First", "[", 
+          RowBox[{"Normal", "[", 
+           RowBox[{"data", "[", 
+            RowBox[{"DeleteDuplicates", ",", "Keys"}], "]"}], "]"}], "]"}], 
+         ",", "\"\<class\>\""}], "]"}]}], "]"}], "]"}], "]"}], 
+   "]"}]}]], "Input",
+ CellLabel->"In[16]:=",ExpressionUUID->"1defd6d3-aa38-ac4f-99d6-909235577cbf"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CalculateAttributeToSplitOnByGiniIndex", "[", 
+  RowBox[{"<|", 
+   RowBox[{
+    RowBox[{"\"\<Data\>\"", "->", "data"}], ",", 
+    RowBox[{"\"\<outcome\>\"", "->", "\"\<Class\>\""}]}], "|>"}], 
+  "]"}]], "Input",
+ CellLabel->"In[17]:=",ExpressionUUID->"d010099c-7335-b745-9dc3-cff37f7ce5a8"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "AssociationMap", "invrp", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"DeleteDuplicates\\\"}]\\) is not a \
+valid Association or a list.\"", 2, 17, 60, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912830706463`*^9},
+ CellLabel->
+  "During evaluation of \
+In[17]:=",ExpressionUUID->"c063ae61-ad26-3943-9dbb-84f41b6a3ce5"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "AssociationMap", "invrp", 
+   "\"The argument \\!\\(\\*RowBox[{RowBox[{\\\"GiniIndex\\\", \\\"[\\\", \
+RowBox[{\\\"Association\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\\\\\\\"Data\\\\\\\"\\\", \\\"\[Rule]\\\", \
+\\\"$Failed\\\"}], \\\",\\\", RowBox[{\\\"\\\\\\\"Attribute\\\\\\\"\\\", \\\"\
+\[Rule]\\\", \\\"#1\\\"}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"outcome\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"\\\\\\\"class\\\
+\\\\\"\\\"}]}], \\\"]\\\"}], \\\"]\\\"}], \\\"&\\\"}]\\) is not a valid \
+Association or a list.\"", 2, 17, 61, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191283150343*^9},
+ CellLabel->
+  "During evaluation of \
+In[17]:=",ExpressionUUID->"ba66e6c9-2e68-9146-97eb-ba6b072212d6"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Keys", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"AssociationMap\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \
+RowBox[{RowBox[{\\\"GiniIndex\\\", \\\"[\\\", RowBox[{\\\"Association\\\", \\\
+\"[\\\", RowBox[{RowBox[{\\\"\\\\\\\"Data\\\\\\\"\\\", \\\"\[Rule]\\\", \
+\\\"$Failed\\\"}], \\\",\\\", RowBox[{\\\"\\\\\\\"Attribute\\\\\\\"\\\", \\\"\
+\[Rule]\\\", \\\"#1\\\"}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"outcome\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"\\\\\\\"class\\\
+\\\\\"\\\"}]}], \\\"]\\\"}], \\\"]\\\"}], \\\"&\\\"}]}], \\\"]\\\"}]\\) is \
+not a valid Association or a list of rules.\"", 2, 17, 62, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.93619128325733*^9},
+ CellLabel->
+  "During evaluation of \
+In[17]:=",ExpressionUUID->"d899b63f-7fc8-194d-b556-8569b0f4eb70"],
+
+Cell[BoxData[
+ RowBox[{"AssociationMap", "[", 
+  RowBox[{"DeleteDuplicates", ",", 
+   RowBox[{
+    RowBox[{"GiniIndex", "[", 
+     RowBox[{"Association", "[", 
+      RowBox[{
+       RowBox[{"\<\"Data\"\>", "\[Rule]", "$Failed"}], ",", 
+       RowBox[{"\<\"Attribute\"\>", "\[Rule]", "#1"}], ",", 
+       RowBox[{"\<\"outcome\"\>", "\[Rule]", "\<\"class\"\>"}]}], "]"}], 
+     "]"}], "&"}]}], "]"}]], "Output",
+ CellChangeTimes->{3.9360323233731194`*^9, 3.936033381442175*^9, 
+  3.9361912833333416`*^9},
+ CellLabel->"Out[17]=",ExpressionUUID->"8ca29510-be67-0244-a96f-38e587f94867"]
+}, Open  ]],
+
+Cell["\<\
+We can see from above that car type has the smallest impurity at 0.1625 so \
+that\[CloseCurlyQuote]s what we want to split on.\
+\>", "Text",
+ CellChangeTimes->{{3.936032334697241*^9, 
+  3.936032380408291*^9}},ExpressionUUID->"94263013-f988-5b47-818f-\
+5fdc3d00dca5"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"FromRelativeFrequencyToEntropy", "[", "list_", "]"}], ":=", 
+  RowBox[{"Sum", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "term"}], "*", 
+     RowBox[{"Log", "[", 
+      RowBox[{"2", ",", "term"}], "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"term", ",", 
+      RowBox[{"RelativeFrequency", "[", "list", "]"}]}], "}"}]}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.9360324300275993`*^9, 3.936032456749586*^9}, {
+  3.93603250515102*^9, 3.9360325056757393`*^9}, {3.936032724090946*^9, 
+  3.936032736220379*^9}},
+ CellLabel->"In[18]:=",ExpressionUUID->"5e15c726-d677-844d-b9a7-fe59ea140051"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FromRelativeFrequencyToEntropy", "[", 
+  RowBox[{"{", 
+   RowBox[{"4", ",", "6"}], "}"}], "]"}]], "Input",
+ CellChangeTimes->{{3.936032459389559*^9, 3.936032464693968*^9}},
+ CellLabel->"In[19]:=",ExpressionUUID->"f8712c3d-141a-ac45-9183-9a90b1f7ba45"],
+
+Cell[BoxData["1"], "Output",
+ CellChangeTimes->{{3.936032465230879*^9, 3.936032507790966*^9}, {
+   3.936032732251177*^9, 3.936032738138685*^9}, 3.936033385735588*^9, 
+   3.9360391209664917`*^9, 3.9361912834874706`*^9},
+ CellLabel->"Out[19]=",ExpressionUUID->"1e94f0d3-325b-dc49-9e4d-5e7825bb604b"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "term"}], "*", 
+    RowBox[{"Log", "[", 
+     RowBox[{"2", ",", "term"}], "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"term", ",", 
+     RowBox[{"RelativeFrequency", "[", 
+      RowBox[{"{", 
+       RowBox[{"4", ",", "6"}], "}"}], "]"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9360334072748146`*^9, 3.9360334196617393`*^9}},
+ CellLabel->"In[20]:=",ExpressionUUID->"3ebfb792-7ae2-c44c-8ec5-63d39294de1b"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox["1", "2"], ",", 
+   FractionBox["1", "2"]}], "}"}]], "Output",
+ CellChangeTimes->{{3.9360334086427937`*^9, 3.936033419972475*^9}, 
+   3.936039121093405*^9, 3.9361912835564423`*^9},
+ CellLabel->"Out[20]=",ExpressionUUID->"ae495a2d-19b2-8d40-ab65-3d8ec6753b1f"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Table", "[", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", "term"}], "*", 
+    RowBox[{"Log", "[", "term", "]"}]}], ",", 
+   RowBox[{"{", 
+    RowBox[{"term", ",", 
+     RowBox[{"RelativeFrequency", "[", 
+      RowBox[{"{", 
+       RowBox[{"4", ",", "6"}], "}"}], "]"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.9360334072748146`*^9, 3.936033430599594*^9}},
+ CellLabel->"In[21]:=",ExpressionUUID->"30e2cb4e-5f48-2c44-8a9b-5cf9d4146727"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"Log", "[", "2", "]"}], "2"], ",", 
+   FractionBox[
+    RowBox[{"Log", "[", "2", "]"}], "2"]}], "}"}]], "Output",
+ CellChangeTimes->{3.9360334310190983`*^9, 3.936039121223444*^9, 
+  3.936191283632328*^9},
+ CellLabel->"Out[21]=",ExpressionUUID->"faa168d6-f18c-614e-81a8-4e12b7f2f494"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Total", "[", 
+  RowBox[{"Table", "[", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"-", "term"}], "*", 
+     RowBox[{"Log", "[", "term", "]"}]}], ",", 
+    RowBox[{"{", 
+     RowBox[{"term", ",", 
+      RowBox[{"RelativeFrequency", "[", 
+       RowBox[{"{", 
+        RowBox[{"4", ",", "6"}], "}"}], "]"}]}], "}"}]}], "]"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.9360334329268665`*^9, 3.936033433903858*^9}},
+ CellLabel->"In[22]:=",ExpressionUUID->"c43284a0-461e-9044-ade2-fec8dd60d32c"],
+
+Cell[BoxData[
+ RowBox[{"Log", "[", "2", "]"}]], "Output",
+ CellChangeTimes->{3.9360334342125416`*^9, 3.936039121328829*^9, 
+  3.9361912837053223`*^9},
+ CellLabel->"Out[22]=",ExpressionUUID->"74b7f615-5d19-7b4c-8641-7bf0556e513e"]
+}, Open  ]],
+
+Cell["\<\
+My function produces the same output as the built in entropy function.\
+\>", "Text",
+ CellChangeTimes->{{3.936039782625353*^9, 3.9360397882797947`*^9}, {
+  3.9360398608099785`*^9, 
+  3.9360398655747395`*^9}},ExpressionUUID->"61fed40f-137f-da4d-a26c-\
+2b82b8af7935"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Entropy", "[", 
+  RowBox[{"2", ",", 
+   RowBox[{"Normal", "@", 
+    RowBox[{"Values", "@", 
+     RowBox[{"data", "[", 
+      RowBox[{"All", ",", "\"\<class\>\""}], "]"}]}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.936033443015703*^9, 3.9360334600618916`*^9}, {
+  3.93603981299226*^9, 3.9360398183700314`*^9}, {3.9360398692750416`*^9, 
+  3.936039881480034*^9}},
+ CellLabel->"In[23]:=",ExpressionUUID->"6b5f38bd-6311-0d48-9aa8-af12ebedb85e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 23, 63, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191283776476*^9},
+ CellLabel->
+  "During evaluation of \
+In[23]:=",ExpressionUUID->"2e916133-7c2f-ff44-909f-69c2e9ff728d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Entropy", "targ", 
+   "\"Argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) at position \
+\\!\\(\\*RowBox[{\\\"2\\\"}]\\) should be a List, a SparseArray, or a String.\
+\"", 2, 23, 64, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912838663845`*^9},
+ CellLabel->
+  "During evaluation of \
+In[23]:=",ExpressionUUID->"b4b11a3d-7862-554c-9f26-f8c041094c15"],
+
+Cell[BoxData[
+ RowBox[{"Entropy", "[", 
+  RowBox[{"2", ",", 
+   RowBox[{"Values", "[", 
+    RowBox[{"$Failed", "[", 
+     RowBox[{"All", ",", "\<\"class\"\>"}], "]"}], "]"}]}], "]"}]], "Output",
+ CellChangeTimes->{{3.9360334521112194`*^9, 3.936033460418398*^9}, 
+   3.9360391214717503`*^9, 3.9360398190500584`*^9, {3.936039873931469*^9, 
+   3.9360398816524525`*^9}, 3.9361912839643784`*^9},
+ CellLabel->"Out[23]=",ExpressionUUID->"23989240-209e-154c-a87f-32f51e5ff5cd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FullSimplify", "[", 
+  RowBox[{"Entropy", "[", 
+   RowBox[{"2", ",", 
+    RowBox[{"Normal", "@", 
+     RowBox[{"Values", "@", 
+      RowBox[{"data", "[", 
+       RowBox[{"All", ",", "\"\<class\>\""}], "]"}]}]}]}], "]"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.936039916493538*^9, 3.936039918247122*^9}},
+ CellLabel->"In[24]:=",ExpressionUUID->"157d1b8d-4ef1-f740-9f95-2d47fdc09fd1"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 24, 65, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912840453224`*^9},
+ CellLabel->
+  "During evaluation of \
+In[24]:=",ExpressionUUID->"0547289c-1dc9-7343-b19a-d8d85953a29c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Entropy", "targ", 
+   "\"Argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) at position \
+\\!\\(\\*RowBox[{\\\"2\\\"}]\\) should be a List, a SparseArray, or a String.\
+\"", 2, 24, 66, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912841173897`*^9},
+ CellLabel->
+  "During evaluation of \
+In[24]:=",ExpressionUUID->"f61c9b54-30a9-be4d-b895-81e527d25de3"],
+
+Cell[BoxData[
+ RowBox[{"Entropy", "[", 
+  RowBox[{"2", ",", 
+   RowBox[{"Values", "[", 
+    RowBox[{"$Failed", "[", 
+     RowBox[{"All", ",", "\<\"class\"\>"}], "]"}], "]"}]}], "]"}]], "Output",
+ CellChangeTimes->{3.936039918605152*^9, 3.936191284219328*^9},
+ CellLabel->"Out[24]=",ExpressionUUID->"4df2cb24-6961-4744-aefe-ea345ae1349a"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"N", "[", 
+  RowBox[{
+   RowBox[{"-", 
+    FractionBox[
+     RowBox[{"Log", "[", "10", "]"}], 
+     RowBox[{"Log", "[", "2", "]"}]]}], "+", 
+   FractionBox[
+    RowBox[{"Log", "[", "20", "]"}], 
+    RowBox[{"Log", "[", "2", "]"}]]}], "]"}]], "Input",
+ NumberMarks->False,
+ CellLabel->"In[25]:=",ExpressionUUID->"0c3c56c4-3a85-ef49-b9f3-4ec8df839942"],
+
+Cell[BoxData["0.9999999999999991`"], "Output",
+ CellChangeTimes->{3.9360398841333427`*^9, 3.936191284301359*^9},
+ CellLabel->"Out[25]=",ExpressionUUID->"d2925bc5-3d9c-af40-8ee4-1ab796763078"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"FromRelativeFrequencyToEntropy", "[", 
+  RowBox[{"Normal", "@", 
+   RowBox[{"Values", "@", 
+    RowBox[{"data", "[", 
+     RowBox[{"All", ",", "\"\<class\>\""}], "]"}]}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.936032493166792*^9, 3.936032493649067*^9}, 
+   3.9360398567685814`*^9, {3.936039898119215*^9, 3.9360399055957527`*^9}},
+ CellLabel->"In[26]:=",ExpressionUUID->"1208152d-8be2-fd41-9110-903f51cd5b9e"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 26, 67, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912843773823`*^9},
+ CellLabel->
+  "During evaluation of \
+In[26]:=",ExpressionUUID->"663a6dae-cfa2-f945-9470-a44cc2f4fb1a"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 26, 68, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912844663506`*^9},
+ CellLabel->
+  "During evaluation of \
+In[26]:=",ExpressionUUID->"4e470129-97ef-6648-bebb-03ce84380b22"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 26, 69, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191284533394*^9},
+ CellLabel->
+  "During evaluation of \
+In[26]:=",ExpressionUUID->"0902a0fe-c6f1-3a45-a24a-fa7ccece7f1d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 26, 70, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912846014576`*^9},
+ CellLabel->
+  "During evaluation of \
+In[26]:=",ExpressionUUID->"440b9444-5084-6043-9fa2-65c84ff61ef7"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Counts\\\", \\\"::\\\", \
+\\\"invl\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 26, 71, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191284672468*^9},
+ CellLabel->
+  "During evaluation of \
+In[26]:=",ExpressionUUID->"58ee401e-dd7a-714b-8588-eec80c93be55"],
+
+Cell[BoxData[
+ RowBox[{
+  UnderoverscriptBox["\[Sum]", "term", 
+   FractionBox[
+    RowBox[{"Counts", "[", 
+     RowBox[{"Values", "[", 
+      RowBox[{"$Failed", "[", 
+       RowBox[{"All", ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+    RowBox[{"Total", "[", 
+     RowBox[{"Counts", "[", 
+      RowBox[{"Values", "[", 
+       RowBox[{"$Failed", "[", 
+        RowBox[{"All", ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], "]"}]]], 
+  RowBox[{"-", 
+   FractionBox[
+    RowBox[{"term", " ", 
+     RowBox[{"Log", "[", "term", "]"}]}], 
+    RowBox[{"Log", "[", "2", "]"}]]}]}]], "Output",
+ CellChangeTimes->{{3.936032493950283*^9, 3.936032509120352*^9}, 
+   3.9360327393201065`*^9, 3.9360391216043835`*^9, 3.936039796109165*^9, 
+   3.93603985784898*^9, {3.93603989919726*^9, 3.93603990626038*^9}, 
+   3.936191285412981*^9},
+ CellLabel->"Out[26]=",ExpressionUUID->"55f94de0-03fc-6244-846b-b4f69347f5d1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Information", "[", "Entropy", "]"}]], "Input",
+ CellChangeTimes->{{3.9360325506852074`*^9, 3.9360325558673344`*^9}},
+ CellLabel->"In[27]:=",ExpressionUUID->"67532245-4c2a-4c47-a2b2-d01c0aa68ec4"],
+
+Cell[BoxData[
+ InterpretationBox[
+  StyleBox[
+   FrameBox[
+    DynamicModuleBox[{System`InformationDump`open$$ = True, 
+     System`InformationDump`mouseOver$$ = False}, 
+     PaneSelectorBox[{True->
+      TagBox[GridBox[{
+         {
+          ItemBox[
+           PaneBox[
+            StyleBox[
+             TagBox[
+              TooltipBox[
+               StyleBox["\<\" Symbol\"\>", "InformationRowLabel",
+                StripOnInput->False],
+               "\"Symbol\"",
+               TooltipStyle->"TextStyling"],
+              Annotation[#, "Symbol", "Tooltip"]& ], "InformationTitleText",
+             StripOnInput->False,
+             BaseStyle -> None],
+            FrameMargins->{{4, 0}, {-1, 1}}],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], 
+          ItemBox[
+           PaneBox[
+            TooltipBox[
+             ButtonBox[
+              PaneSelectorBox[{False->
+               
+               DynamicBox[FEPrivate`FrontEndResource[
+                "FEBitmaps", "InformationHelpIcon"],
+                
+                ImageSizeCache->{
+                 13., {3.6340330980019644`, 9.365966901998036}}], True->
+               
+               DynamicBox[FEPrivate`FrontEndResource[
+                "FEBitmaps", "InformationHelpIconHot"],
+                
+                ImageSizeCache->{
+                 13., {3.6340330980019644`, 9.365966901998036}}]}, Dynamic[
+                CurrentValue["MouseOver"]]],
+              Appearance->None,
+              BaseStyle->"Link",
+              ButtonData->"paclet:ref/Entropy",
+              ButtonNote->"paclet:ref/Entropy"],
+             "\"paclet:ref/Entropy\""],
+            FrameMargins->{{0, 4}, {0, 2}}],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False]},
+         {
+          ItemBox[
+           PaneBox[
+            
+            StyleBox["\<\"\\!\\(\\*RowBox[{\\\"Entropy\\\", \\\"[\\\", \
+StyleBox[\\\"list\\\", \\\"TI\\\"], \\\"]\\\"}]\\) gives the base \
+\[ExponentialE] information entropy of the values in \
+\\!\\(\\*StyleBox[\\\"list\\\", \
+\\\"TI\\\"]\\).\\n\\!\\(\\*RowBox[{\\\"Entropy\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"k\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"list\\\", \\\
+\"TI\\\"]}], \\\"]\\\"}]\\) gives the base \\!\\(\\*StyleBox[\\\"k\\\", \
+\\\"TI\\\"]\\) information entropy.\"\>", "InformationUsageText",
+             StripOnInput->False,
+             LineSpacing->{1.5, 1.5, 3.}],
+            FrameMargins->{{10, 10}, {8, 10}}],
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False], 
+          ItemBox["\<\"\"\>",
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False]},
+         {
+          PaneBox[GridBox[{
+             {
+              
+              DynamicModuleBox[{System`InformationDump`open$$ = {
+               False, False, False, False, False, False}}, 
+               StyleBox[GridBox[{
+                  {
+                   TagBox[
+                    TooltipBox[
+                    StyleBox["\<\" Documentation\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                    "\"Documentation\"",
+                    TooltipStyle->"TextStyling"],
+                    Annotation[#, "Documentation", "Tooltip"]& ], 
+                   TemplateBox[{
+                    
+                    TemplateBox[{
+                    "\"Local \[RightGuillemet]\"", "paclet:ref/Entropy", 
+                    "paclet:ref/Entropy", "Link", {
+                    RGBColor[0.9686274509803922, 0.4666666666666667, 0.]}, 
+                    BaseStyle -> {
+                    RGBColor[0.0784313725490196, 0.1568627450980392, 0.6]}}, 
+                    "HyperlinkTemplate"], "\"  \"", 
+                    StyleBox[
+                    "\"|\"", "InformationRowLabel", StripOnInput -> False], 
+                    "\"  \"", 
+                    TemplateBox[{"\"Web \[RightGuillemet]\"", {
+                    URL[
+                    "http://reference.wolfram.com/language/ref/Entropy.html"],
+                     None}, 
+                    "http://reference.wolfram.com/language/ref/Entropy.html", 
+                    "Hyperlink", {
+                    RGBColor[0.9686274509803922, 0.4666666666666667, 0.]}, 
+                    BaseStyle -> {
+                    RGBColor[0.0784313725490196, 0.1568627450980392, 0.6]}}, 
+                    "HyperlinkTemplate"]},
+                    "RowDefault"]},
+                  {
+                   TagBox[
+                    TooltipBox[
+                    StyleBox["\<\" Options\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                    "\"Options\"",
+                    TooltipStyle->"TextStyling"],
+                    Annotation[#, "Options", "Tooltip"]& ], 
+                   RowBox[{"SameTest", "\[Rule]", "Automatic"}]},
+                  {
+                   TagBox[
+                    TooltipBox[
+                    StyleBox["\<\" Attributes\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                    "\"Attributes\"",
+                    TooltipStyle->"TextStyling"],
+                    Annotation[#, "Attributes", "Tooltip"]& ], 
+                   RowBox[{"{", 
+                    RowBox[{"Protected", ",", "ReadProtected"}], "}"}]},
+                  {
+                   TagBox[
+                    TooltipBox[
+                    StyleBox["\<\" Full Name\"\>", "InformationRowLabel",
+                    StripOnInput->False],
+                    "\"FullName\"",
+                    TooltipStyle->"TextStyling"],
+                    
+                    Annotation[#, "FullName", 
+                    "Tooltip"]& ], "\<\"System`Entropy\"\>"}
+                 },
+                 AutoDelete->False,
+                 GridBoxAlignment->{"Columns" -> {Right, Left}},
+                 GridBoxDividers->None,
+                 GridBoxItemSize->{"Columns" -> {Automatic, Automatic}},
+                 GridBoxSpacings->{"Columns" -> {
+                    Offset[0.27999999999999997`], {
+                    Offset[0.5599999999999999]}, 
+                    Offset[0.27999999999999997`]}, "Rows" -> {
+                    Offset[0.2], {
+                    Offset[0.8]}, 
+                    Offset[0.2]}}], "DialogStyle",
+                StripOnInput->False],
+               DynamicModuleValues:>{}]}
+            },
+            DefaultBaseStyle->"Column",
+            GridBoxAlignment->{"Columns" -> {{Left}}},
+            GridBoxDividers->{"Columns" -> {{False}}, "Rows" -> {{False}}},
+            
+            GridBoxItemSize->{
+             "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}},
+            GridBoxSpacings->{"Columns" -> {
+                Offset[0.27999999999999997`], {
+                 Offset[0.5599999999999999]}, 
+                Offset[0.27999999999999997`]}, "Rows" -> {
+                Offset[0.2], {
+                 Offset[3.6]}, 
+                Offset[0.2]}}],
+           FrameMargins->{{6, 6}, {6, 3}}], ""},
+         {
+          ItemBox[
+           TagBox[
+            ButtonBox[
+             PaneSelectorBox[{False->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "UpPointerOpener"],
+               
+               ImageSizeCache->{
+                10., {2.9335936884162948`, 7.066406311583705}}], True->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "UpPointerOpenerHot"],
+               
+               ImageSizeCache->{
+                10., {2.9335936884162948`, 7.066406311583705}}]}, Dynamic[
+              System`InformationDump`mouseOver$$]],
+             Alignment->Left,
+             Appearance->{"Default" -> None},
+             
+             ButtonFunction:>FEPrivate`Set[
+              System`InformationDump`open$$, False],
+             Evaluator->Automatic,
+             FrameMargins->{{9, 0}, {0, 0}},
+             ImageMargins->0,
+             ImageSize->Full,
+             Method->"Preemptive"],
+            
+            EventHandlerTag[{
+             "MouseEntered" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, True], 
+              "MouseExited" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, False], 
+              Method -> "Preemptive", PassEventsDown -> Automatic, 
+              PassEventsUp -> True}]],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], "\[SpanFromLeft]"}
+        },
+        AutoDelete->False,
+        FrameStyle->Directive[
+          GrayLevel[0.8], 
+          Thickness[Tiny]],
+        GridBoxAlignment->{"Columns" -> {Left, Right}, "Rows" -> {{Center}}},
+        GridBoxDividers->{
+         "Columns" -> {{None}}, "Rows" -> {False, {True}, False}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+       "Grid"], False->
+      TagBox[GridBox[{
+         {
+          ItemBox[
+           PaneBox[
+            StyleBox[
+             TagBox[
+              TooltipBox[
+               StyleBox["\<\" Symbol\"\>", "InformationRowLabel",
+                StripOnInput->False],
+               "\"Symbol\"",
+               TooltipStyle->"TextStyling"],
+              Annotation[#, "Symbol", "Tooltip"]& ], "InformationTitleText",
+             StripOnInput->False],
+            FrameMargins->{{4, 0}, {-1, 1}}],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], 
+          ItemBox[
+           PaneBox[
+            TooltipBox[
+             ButtonBox[
+              PaneSelectorBox[{False->
+               
+               DynamicBox[FEPrivate`FrontEndResource[
+                "FEBitmaps", "InformationHelpIcon"]], True->
+               
+               DynamicBox[FEPrivate`FrontEndResource[
+                "FEBitmaps", "InformationHelpIconHot"]]}, Dynamic[
+                CurrentValue["MouseOver"]]],
+              Appearance->None,
+              BaseStyle->"Link",
+              ButtonData->"paclet:ref/Entropy",
+              ButtonNote->"paclet:ref/Entropy"],
+             "\"paclet:ref/Entropy\""],
+            FrameMargins->{{0, 4}, {0, 2}}],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False]},
+         {
+          ItemBox[
+           PaneBox[
+            
+            StyleBox["\<\"\\!\\(\\*RowBox[{\\\"Entropy\\\", \\\"[\\\", \
+StyleBox[\\\"list\\\", \\\"TI\\\"], \\\"]\\\"}]\\) gives the base \
+\[ExponentialE] information entropy of the values in \
+\\!\\(\\*StyleBox[\\\"list\\\", \
+\\\"TI\\\"]\\).\\n\\!\\(\\*RowBox[{\\\"Entropy\\\", \\\"[\\\", \
+RowBox[{StyleBox[\\\"k\\\", \\\"TI\\\"], \\\",\\\", StyleBox[\\\"list\\\", \\\
+\"TI\\\"]}], \\\"]\\\"}]\\) gives the base \\!\\(\\*StyleBox[\\\"k\\\", \
+\\\"TI\\\"]\\) information entropy.\"\>", "InformationUsageText",
+             StripOnInput->False,
+             LineSpacing->{1.5, 1.5, 3.}],
+            FrameMargins->{{10, 10}, {8, 10}}],
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False], 
+          ItemBox["\<\"\"\>",
+           BaseStyle->"InformationUsageSubtitleBackground",
+           StripOnInput->False]},
+         {
+          ItemBox[
+           TagBox[
+            ButtonBox[
+             PaneSelectorBox[{False->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "DownPointerOpener"]], True->
+              
+              DynamicBox[FEPrivate`FrontEndResource[
+               "FEBitmaps", "DownPointerOpenerHot"]]}, Dynamic[
+              System`InformationDump`mouseOver$$]],
+             Alignment->Left,
+             Appearance->{"Default" -> None},
+             
+             ButtonFunction:>FEPrivate`Set[
+              System`InformationDump`open$$, True],
+             Evaluator->Automatic,
+             FrameMargins->{{9, 0}, {0, 0}},
+             ImageMargins->0,
+             ImageSize->Full,
+             Method->"Preemptive"],
+            
+            EventHandlerTag[{
+             "MouseEntered" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, True], 
+              "MouseExited" :> 
+              FEPrivate`Set[System`InformationDump`mouseOver$$, False], 
+              Method -> "Preemptive", PassEventsDown -> Automatic, 
+              PassEventsUp -> True}]],
+           BaseStyle->"InformationTitleBackground",
+           StripOnInput->False], "\[SpanFromLeft]"}
+        },
+        AutoDelete->False,
+        FrameStyle->Directive[
+          GrayLevel[0.8], 
+          Thickness[Tiny]],
+        GridBoxAlignment->{"Columns" -> {Left, Right}, "Rows" -> {{Center}}},
+        GridBoxDividers->{
+         "Columns" -> {{None}}, "Rows" -> {False, {True}, False}},
+        GridBoxItemSize->{
+         "Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}],
+       "Grid"]}, Dynamic[System`InformationDump`open$$],
+      BaselinePosition->Baseline,
+      FrameMargins->0,
+      ImageSize->Automatic],
+     DynamicModuleValues:>{}],
+    BaseStyle->"InformationGridFrame",
+    StripOnInput->False], "InformationGridPlain",
+   StripOnInput->False],
+  InformationData[<|
+   "ObjectType" -> "Symbol", "Usage" -> 
+    "\!\(\*RowBox[{\"Entropy\", \"[\", StyleBox[\"list\", \"TI\"], \"]\"}]\) \
+gives the base \[ExponentialE] information entropy of the values in \
+\!\(\*StyleBox[\"list\", \"TI\"]\).\n\!\(\*RowBox[{\"Entropy\", \"[\", \
+RowBox[{StyleBox[\"k\", \"TI\"], \",\", StyleBox[\"list\", \"TI\"]}], \"]\"}]\
+\) gives the base \!\(\*StyleBox[\"k\", \"TI\"]\) information entropy.", 
+    "Documentation" -> <|
+     "Local" -> "paclet:ref/Entropy", "Web" -> 
+      "http://reference.wolfram.com/language/ref/Entropy.html"|>, "OwnValues" -> 
+    None, "UpValues" -> None, "DownValues" -> None, "SubValues" -> None, 
+    "DefaultValues" -> None, "NValues" -> None, "FormatValues" -> None, 
+    "Options" -> {SameTest -> Automatic}, 
+    "Attributes" -> {Protected, ReadProtected}, "FullName" -> 
+    "System`Entropy"|>, True]]], "Output",
+ CellChangeTimes->{3.936032556385372*^9, 3.9360391218210487`*^9, 
+  3.9361912856683884`*^9},
+ CellLabel->"Out[27]=",ExpressionUUID->"00e39153-dad9-ab4d-bbfd-57e5c71416ef"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"calculateEntropy", "[", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"\"\<Data\>\"", "->", "data_"}], ",", 
+     RowBox[{"\"\<Attribute\>\"", "->", "attribute_"}], ",", 
+     RowBox[{"\"\<outcome\>\"", "->", "outcome_"}]}], "|>"}], "]"}], ":=", 
+  RowBox[{
+   RowBox[{"(", 
+    RowBox[{"Values", "@", 
+     RowBox[{"RelativeFrequency", "[", 
+      RowBox[{"Normal", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"data", "[", 
+         RowBox[{"All", ",", "attribute"}], "]"}], "]"}], "]"}], "]"}]}], 
+    ")"}], ".", 
+   RowBox[{"(", 
+    RowBox[{"FromRelativeFrequencyToEntropy", "/@", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Values", "@", 
+        RowBox[{"RelativeFrequency", "[", 
+         RowBox[{"Normal", "[", 
+          RowBox[{"Values", "[", 
+           RowBox[{"data", "[", 
+            RowBox[{
+             RowBox[{"Select", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Slot", "[", "attribute", "]"}], "==", "value"}], 
+               "&"}], "]"}], ",", "outcome"}], "]"}], "]"}], "]"}], "]"}]}], 
+       ",", 
+       RowBox[{"{", 
+        RowBox[{"value", ",", 
+         RowBox[{"Normal", "[", 
+          RowBox[{"Values", "[", 
+           RowBox[{"data", "[", 
+            RowBox[{"DeleteDuplicates", ",", "attribute"}], "]"}], "]"}], 
+          "]"}]}], "}"}]}], "]"}]}], ")"}]}]}]], "Input",
+ CellChangeTimes->{{3.936032533148348*^9, 3.9360325411544743`*^9}, {
+  3.9360326560947742`*^9, 3.9360326577002296`*^9}, {3.936039138815199*^9, 
+  3.936039156465004*^9}},
+ CellLabel->"In[28]:=",ExpressionUUID->"04f0a6a7-ec27-3e4f-a40e-251c908f0045"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"#", ",", 
+     RowBox[{"N", "[", "#", "]"}]}], "}"}], "&"}], "@", 
+  RowBox[{"calculateEntropy", "[", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"\"\<Data\>\"", "->", "data"}], ",", 
+     RowBox[{"\"\<Attribute\>\"", "->", "\"\<male?\>\""}], ",", 
+     RowBox[{"\"\<outcome\>\"", "->", "\"\<class\>\""}]}], "|>"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.93576156576145*^9, 3.935761618507374*^9}, {
+   3.9357617620620937`*^9, 3.9357617763084393`*^9}, {3.936032263294817*^9, 
+   3.936032270812048*^9}, 3.9360326939506645`*^9},
+ CellLabel->"In[29]:=",ExpressionUUID->"12756330-8c3d-c248-a2f5-5a45817e8dbb"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"male?\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 29, 72, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912857637596`*^9},
+ CellLabel->
+  "During evaluation of \
+In[29]:=",ExpressionUUID->"2a3bfeb7-b6f4-4c40-8b36-e79795bf4a07"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"male?\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 29, 73, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912858650627`*^9},
+ CellLabel->
+  "During evaluation of \
+In[29]:=",ExpressionUUID->"b88bdfad-b61e-ef49-a47e-3a2d5b5700cc"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"male?\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 29, 74, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912859347763`*^9},
+ CellLabel->
+  "During evaluation of \
+In[29]:=",ExpressionUUID->"f2f2519a-693d-154d-b6e3-561c249d9cc0"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"male?\\\\\\\"\\\"}], \\\"]\\\"}], \
+\\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"male?\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\
+\\\"}]]\\) is not a valid Association or a list of rules.\"", 2, 29, 75, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912860007763`*^9},
+ CellLabel->
+  "During evaluation of \
+In[29]:=",ExpressionUUID->"60458cad-afd0-c44e-ab33-8abebc81b690"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \\\"\\\\\\\"male?\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 29, 76, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.93619128607271*^9},
+ CellLabel->
+  "During evaluation of \
+In[29]:=",ExpressionUUID->"df26f861-e092-924c-9846-a56d4e71a42b"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Values\\\", \\\"::\\\", \
+\\\"invrl\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 29, 77, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912861457043`*^9},
+ CellLabel->
+  "During evaluation of \
+In[29]:=",ExpressionUUID->"198f5ad3-d93e-b44c-a081-10a77bff48f1"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "iterb", 
+   "\"Iterator \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"value\\\", \\\",\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \\\"\\\\\\\"male?\\\\\\\"\\\"}], \
+\\\"]\\\"}], \\\"]\\\"}]}], \\\"}\\\"}]\\) does not have appropriate \
+bounds.\"", 2, 29, 78, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191286215687*^9},
+ CellLabel->
+  "During evaluation of \
+In[29]:=",ExpressionUUID->"2226f95a-e231-094c-a44b-e31bbcc278e0"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "iterb", 
+   "\"Iterator \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"value\\\", \\\",\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \\\"\\\\\\\"male?\\\\\\\"\\\"}], \
+\\\"]\\\"}], \\\"]\\\"}]}], \\\"}\\\"}]\\) does not have appropriate \
+bounds.\"", 2, 29, 79, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191286276869*^9},
+ CellLabel->
+  "During evaluation of \
+In[29]:=",ExpressionUUID->"01d2eb84-3b74-be41-943c-0434f5aedee8"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Select\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"#\\\\\\\"male?\\\\\\\"\\\", \\\"\[Equal]\\\", \
+\\\"value\\\"}], \\\"&\\\"}], \\\"]\\\"}], \\\",\\\", \\\"\\\\\\\"class\\\\\\\
+\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a list.\"", 2, 29, 80, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912863456955`*^9},
+ CellLabel->
+  "During evaluation of \
+In[29]:=",ExpressionUUID->"12babb42-bf3f-d747-a79f-267e037540fb"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Counts\\\", \\\"::\\\", \
+\\\"invl\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 29, 81, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912864147835`*^9},
+ CellLabel->
+  "During evaluation of \
+In[29]:=",ExpressionUUID->"9236d1d8-c77c-3743-8cdb-2b520f04ad99"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NSum", "nslim", 
+   "\"Limit of summation \\!\\(\\*FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\
+\", RowBox[{\\\"Values\\\", \\\"[\\\", FractionBox[RowBox[{\\\"Counts\\\", \\\
+\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"Select\\\", \\\"[\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \
+\\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\
+\"}], RowBox[{\\\"Total\\\", \\\"[\\\", RowBox[{\\\"Counts\\\", \\\"[\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \
+\\\"]\\\"}]], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", \
+FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\
+\\\"}]], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}]]\\) is not a number.\"", 2, 29,
+    82, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912868166943`*^9},
+ CellLabel->
+  "During evaluation of \
+In[29]:=",ExpressionUUID->"510a8828-3150-5547-b5c6-3ccdfa317ce4"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NSum", "nslim", 
+   "\"Limit of summation \\!\\(\\*FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\
+\", RowBox[{\\\"Values\\\", \\\"[\\\", FractionBox[RowBox[{\\\"Counts\\\", \\\
+\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"Select\\\", \\\"[\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \
+\\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\
+\"}], RowBox[{\\\"Total\\\", \\\"[\\\", RowBox[{\\\"Counts\\\", \\\"[\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \
+\\\"]\\\"}]], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", \
+FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\
+\\\"}]], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}]]\\) is not a number.\"", 2, 29,
+    83, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912869156933`*^9},
+ CellLabel->
+  "During evaluation of \
+In[29]:=",ExpressionUUID->"a3248f63-d24c-4047-90eb-7c5ffd226ac1"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NSum", "nslim", 
+   "\"Limit of summation \\!\\(\\*FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\
+\", RowBox[{\\\"Values\\\", \\\"[\\\", FractionBox[RowBox[{\\\"Counts\\\", \\\
+\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"Select\\\", \\\"[\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \
+\\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\
+\"}], RowBox[{\\\"Total\\\", \\\"[\\\", RowBox[{\\\"Counts\\\", \\\"[\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \
+\\\"]\\\"}]], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", \
+FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\
+\\\"}]], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}]]\\) is not a number.\"", 2, 29,
+    84, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191286999693*^9},
+ CellLabel->
+  "During evaluation of \
+In[29]:=",ExpressionUUID->"cd6c600c-0b1b-034e-b958-6627cec82c5c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NSum\\\", \\\"::\\\", \
+\\\"nslim\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 29, 85, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912870697594`*^9},
+ CellLabel->
+  "During evaluation of \
+In[29]:=",ExpressionUUID->"e3747eeb-af6e-7944-9a27-875ad5a73558"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Values", "[", 
+     FractionBox[
+      RowBox[{"Counts", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"$Failed", "[", 
+         RowBox[{"All", ",", "\<\"male?\"\>"}], "]"}], "]"}], "]"}], 
+      RowBox[{"Total", "[", 
+       RowBox[{"Counts", "[", 
+        RowBox[{"Values", "[", 
+         RowBox[{"$Failed", "[", 
+          RowBox[{"All", ",", "\<\"male?\"\>"}], "]"}], "]"}], "]"}], "]"}]], 
+     "]"}], ".", 
+    RowBox[{"{", 
+     RowBox[{
+      UnderoverscriptBox["\[Sum]", "term", 
+       FractionBox[
+        RowBox[{"Counts", "[", 
+         RowBox[{"Values", "[", 
+          FractionBox[
+           RowBox[{"Counts", "[", 
+            RowBox[{"Values", "[", 
+             RowBox[{"$Failed", "[", 
+              RowBox[{
+               RowBox[{"Select", "[", 
+                RowBox[{
+                 RowBox[{"#\"male?\"", "\[Equal]", "value"}], "&"}], "]"}], 
+               ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+           RowBox[{"Total", "[", 
+            RowBox[{"Counts", "[", 
+             RowBox[{"Values", "[", 
+              RowBox[{"$Failed", "[", 
+               RowBox[{
+                RowBox[{"Select", "[", 
+                 RowBox[{
+                  RowBox[{"#\"male?\"", "\[Equal]", "value"}], "&"}], "]"}], 
+                ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], "]"}]], "]"}], 
+         "]"}], 
+        RowBox[{"Total", "[", 
+         RowBox[{"Counts", "[", 
+          RowBox[{"Values", "[", 
+           FractionBox[
+            RowBox[{"Counts", "[", 
+             RowBox[{"Values", "[", 
+              RowBox[{"$Failed", "[", 
+               RowBox[{
+                RowBox[{"Select", "[", 
+                 RowBox[{
+                  RowBox[{"#\"male?\"", "\[Equal]", "value"}], "&"}], "]"}], 
+                ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+            RowBox[{"Total", "[", 
+             RowBox[{"Counts", "[", 
+              RowBox[{"Values", "[", 
+               RowBox[{"$Failed", "[", 
+                RowBox[{
+                 RowBox[{"Select", "[", 
+                  RowBox[{
+                   RowBox[{"#\"male?\"", "\[Equal]", "value"}], "&"}], "]"}], 
+                 ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], "]"}]], "]"}], 
+          "]"}], "]"}]]], 
+      RowBox[{"-", 
+       FractionBox[
+        RowBox[{"term", " ", 
+         RowBox[{"Log", "[", "term", "]"}]}], 
+        RowBox[{"Log", "[", "2", "]"}]]}]}], "}"}]}], ",", 
+   RowBox[{
+    RowBox[{"Values", "[", 
+     FractionBox[
+      RowBox[{"Counts", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"$Failed", "[", 
+         RowBox[{"All", ",", "\<\"male?\"\>"}], "]"}], "]"}], "]"}], 
+      RowBox[{"Total", "[", 
+       RowBox[{"Counts", "[", 
+        RowBox[{"Values", "[", 
+         RowBox[{"$Failed", "[", 
+          RowBox[{"All", ",", "\<\"male?\"\>"}], "]"}], "]"}], "]"}], "]"}]], 
+     "]"}], ".", 
+    RowBox[{"{", 
+     RowBox[{"NSum", "[", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"term", " ", 
+          RowBox[{"Log", "[", "term", "]"}]}], 
+         RowBox[{"Log", "[", "2", "]"}]]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"term", ",", 
+         FractionBox[
+          RowBox[{"Counts", "[", 
+           RowBox[{"Values", "[", 
+            FractionBox[
+             RowBox[{"Counts", "[", 
+              RowBox[{"Values", "[", 
+               RowBox[{"$Failed", "[", 
+                RowBox[{
+                 RowBox[{"Select", "[", 
+                  RowBox[{
+                   RowBox[{"#\"male?\"", "\[Equal]", "value"}], "&"}], "]"}], 
+                 ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+             RowBox[{"Total", "[", 
+              RowBox[{"Counts", "[", 
+               RowBox[{"Values", "[", 
+                RowBox[{"$Failed", "[", 
+                 RowBox[{
+                  RowBox[{"Select", "[", 
+                   RowBox[{
+                    RowBox[{"#\"male?\"", "\[Equal]", "value"}], "&"}], "]"}],
+                   ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], "]"}]], "]"}],
+            "]"}], 
+          RowBox[{"Total", "[", 
+           RowBox[{"Counts", "[", 
+            RowBox[{"Values", "[", 
+             FractionBox[
+              RowBox[{"Counts", "[", 
+               RowBox[{"Values", "[", 
+                RowBox[{"$Failed", "[", 
+                 RowBox[{
+                  RowBox[{"Select", "[", 
+                   RowBox[{
+                    RowBox[{"#\"male?\"", "\[Equal]", "value"}], "&"}], "]"}],
+                   ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+              RowBox[{"Total", "[", 
+               RowBox[{"Counts", "[", 
+                RowBox[{"Values", "[", 
+                 RowBox[{"$Failed", "[", 
+                  RowBox[{
+                   RowBox[{"Select", "[", 
+                    RowBox[{
+                    RowBox[{"#\"male?\"", "\[Equal]", "value"}], "&"}], "]"}],
+                    ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], "]"}]], 
+             "]"}], "]"}], "]"}]]}], "}"}]}], "]"}], "}"}]}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.935761595551832*^9, 3.9357616188414993`*^9}, {
+   3.93576178151478*^9, 3.9357617945814457`*^9}, 3.936032271367037*^9, 
+   3.936032707851328*^9, 3.9360327445966015`*^9, 3.936039122033903*^9, 
+   3.936039160302017*^9, 3.9361912871416893`*^9},
+ CellLabel->"Out[29]=",ExpressionUUID->"6c6279cd-6faa-2b47-b0dc-cfb73f4138dd"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"#", ",", 
+     RowBox[{"N", "[", "#", "]"}]}], "}"}], "&"}], "@", 
+  RowBox[{"calculateEntropy", "[", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"\"\<Data\>\"", "->", "data"}], ",", 
+     RowBox[{"\"\<Attribute\>\"", "->", "\"\<car_type\>\""}], ",", 
+     RowBox[{"\"\<outcome\>\"", "->", "\"\<class\>\""}]}], "|>"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.93576156576145*^9, 3.9357616331868534`*^9}, {
+   3.9357617696142178`*^9, 3.9357617794850693`*^9}, 3.9360322755228634`*^9, 
+   3.9360326949580765`*^9},
+ CellLabel->"In[30]:=",ExpressionUUID->"186d41b2-c566-a54f-9f54-2a1dd8be833b"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"car_type\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 30, 86, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912873027153`*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"6da1a34a-363e-7348-a431-c635b834a06a"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"car_type\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 30, 87, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912873802166`*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"fc42d5a9-50e7-0c43-90fc-4eeab063813b"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"car_type\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 30, 88, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912874558525`*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"65aac3fd-1ed2-514c-94ae-642761f4b133"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"car_type\\\\\\\"\\\"}], \
+\\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"car_type\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\
+\"]\\\"}]]\\) is not a valid Association or a list of rules.\"", 2, 30, 89, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191287525036*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"927985d9-1de4-9e4c-ab7e-6b613865b60a"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \
+\\\"\\\\\\\"car_type\\\\\\\"\\\"}], \\\"]\\\"}]\\) is not a valid Association \
+or a list of rules.\"", 2, 30, 90, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912875956974`*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"05e6e28a-1a7d-a947-96e6-d81c245cdb7b"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Values\\\", \\\"::\\\", \
+\\\"invrl\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 30, 91, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912876677628`*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"322a8582-cb49-d84e-8ea6-4dc981ec38bd"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "iterb", 
+   "\"Iterator \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"value\\\", \\\",\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \
+\\\"\\\\\\\"car_type\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]}], \
+\\\"}\\\"}]\\) does not have appropriate bounds.\"", 2, 30, 92, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191287741686*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"d82b0f7b-7804-3d4c-86ee-3f3df9c1de9b"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "iterb", 
+   "\"Iterator \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"value\\\", \\\",\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \
+\\\"\\\\\\\"car_type\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]}], \
+\\\"}\\\"}]\\) does not have appropriate bounds.\"", 2, 30, 93, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912878179226`*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"f6d659de-a7c5-7b4b-bd82-3ead3b110a78"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Select\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"#\\\\\\\"car_type\\\\\\\"\\\", \
+\\\"\[Equal]\\\", \\\"value\\\"}], \\\"&\\\"}], \\\"]\\\"}], \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 30, 94, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912878958206`*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"3a2e08bd-8685-bc43-9ca7-8a427f3080c1"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Counts\\\", \\\"::\\\", \
+\\\"invl\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 30, 95, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912879667664`*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"0d59a04e-02b2-eb48-ae64-e7144240fa3b"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NSum", "nslim", 
+   "\"Limit of summation \\!\\(\\*FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\
+\", RowBox[{\\\"Values\\\", \\\"[\\\", FractionBox[RowBox[{\\\"Counts\\\", \\\
+\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"Select\\\", \\\"[\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \
+\\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\
+\"}], RowBox[{\\\"Total\\\", \\\"[\\\", RowBox[{\\\"Counts\\\", \\\"[\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \
+\\\"]\\\"}]], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", \
+FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\
+\\\"}]], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}]]\\) is not a number.\"", 2, 30,
+    96, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191288304205*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"7cec5ea9-603b-fe44-8ebb-97582d3e8451"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NSum", "nslim", 
+   "\"Limit of summation \\!\\(\\*FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\
+\", RowBox[{\\\"Values\\\", \\\"[\\\", FractionBox[RowBox[{\\\"Counts\\\", \\\
+\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"Select\\\", \\\"[\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \
+\\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\
+\"}], RowBox[{\\\"Total\\\", \\\"[\\\", RowBox[{\\\"Counts\\\", \\\"[\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \
+\\\"]\\\"}]], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", \
+FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\
+\\\"}]], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}]]\\) is not a number.\"", 2, 30,
+    97, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912883811035`*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"fc0f5c82-74d1-3b43-9dfe-7cdff9bf079c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NSum", "nslim", 
+   "\"Limit of summation \\!\\(\\*FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\
+\", RowBox[{\\\"Values\\\", \\\"[\\\", FractionBox[RowBox[{\\\"Counts\\\", \\\
+\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"Select\\\", \\\"[\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \
+\\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\
+\"}], RowBox[{\\\"Total\\\", \\\"[\\\", RowBox[{\\\"Counts\\\", \\\"[\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \
+\\\"]\\\"}]], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", \
+FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\
+\\\"}]], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}]]\\) is not a number.\"", 2, 30,
+    98, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912884607544`*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"6480ac45-ba70-df41-92c2-c72b0c425ba3"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NSum\\\", \\\"::\\\", \
+\\\"nslim\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 30, 99, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912885430393`*^9},
+ CellLabel->
+  "During evaluation of \
+In[30]:=",ExpressionUUID->"d6fc904d-636c-9b47-990e-32e3be6180c0"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Values", "[", 
+     FractionBox[
+      RowBox[{"Counts", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"$Failed", "[", 
+         RowBox[{"All", ",", "\<\"car_type\"\>"}], "]"}], "]"}], "]"}], 
+      RowBox[{"Total", "[", 
+       RowBox[{"Counts", "[", 
+        RowBox[{"Values", "[", 
+         RowBox[{"$Failed", "[", 
+          RowBox[{"All", ",", "\<\"car_type\"\>"}], "]"}], "]"}], "]"}], 
+       "]"}]], "]"}], ".", 
+    RowBox[{"{", 
+     RowBox[{
+      UnderoverscriptBox["\[Sum]", "term", 
+       FractionBox[
+        RowBox[{"Counts", "[", 
+         RowBox[{"Values", "[", 
+          FractionBox[
+           RowBox[{"Counts", "[", 
+            RowBox[{"Values", "[", 
+             RowBox[{"$Failed", "[", 
+              RowBox[{
+               RowBox[{"Select", "[", 
+                RowBox[{
+                 RowBox[{"#\"car_type\"", "\[Equal]", "value"}], "&"}], "]"}],
+                ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+           RowBox[{"Total", "[", 
+            RowBox[{"Counts", "[", 
+             RowBox[{"Values", "[", 
+              RowBox[{"$Failed", "[", 
+               RowBox[{
+                RowBox[{"Select", "[", 
+                 RowBox[{
+                  RowBox[{"#\"car_type\"", "\[Equal]", "value"}], "&"}], 
+                 "]"}], ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], "]"}]], 
+          "]"}], "]"}], 
+        RowBox[{"Total", "[", 
+         RowBox[{"Counts", "[", 
+          RowBox[{"Values", "[", 
+           FractionBox[
+            RowBox[{"Counts", "[", 
+             RowBox[{"Values", "[", 
+              RowBox[{"$Failed", "[", 
+               RowBox[{
+                RowBox[{"Select", "[", 
+                 RowBox[{
+                  RowBox[{"#\"car_type\"", "\[Equal]", "value"}], "&"}], 
+                 "]"}], ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+            RowBox[{"Total", "[", 
+             RowBox[{"Counts", "[", 
+              RowBox[{"Values", "[", 
+               RowBox[{"$Failed", "[", 
+                RowBox[{
+                 RowBox[{"Select", "[", 
+                  RowBox[{
+                   RowBox[{"#\"car_type\"", "\[Equal]", "value"}], "&"}], 
+                  "]"}], ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], "]"}]], 
+           "]"}], "]"}], "]"}]]], 
+      RowBox[{"-", 
+       FractionBox[
+        RowBox[{"term", " ", 
+         RowBox[{"Log", "[", "term", "]"}]}], 
+        RowBox[{"Log", "[", "2", "]"}]]}]}], "}"}]}], ",", 
+   RowBox[{
+    RowBox[{"Values", "[", 
+     FractionBox[
+      RowBox[{"Counts", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"$Failed", "[", 
+         RowBox[{"All", ",", "\<\"car_type\"\>"}], "]"}], "]"}], "]"}], 
+      RowBox[{"Total", "[", 
+       RowBox[{"Counts", "[", 
+        RowBox[{"Values", "[", 
+         RowBox[{"$Failed", "[", 
+          RowBox[{"All", ",", "\<\"car_type\"\>"}], "]"}], "]"}], "]"}], 
+       "]"}]], "]"}], ".", 
+    RowBox[{"{", 
+     RowBox[{"NSum", "[", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"term", " ", 
+          RowBox[{"Log", "[", "term", "]"}]}], 
+         RowBox[{"Log", "[", "2", "]"}]]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"term", ",", 
+         FractionBox[
+          RowBox[{"Counts", "[", 
+           RowBox[{"Values", "[", 
+            FractionBox[
+             RowBox[{"Counts", "[", 
+              RowBox[{"Values", "[", 
+               RowBox[{"$Failed", "[", 
+                RowBox[{
+                 RowBox[{"Select", "[", 
+                  RowBox[{
+                   RowBox[{"#\"car_type\"", "\[Equal]", "value"}], "&"}], 
+                  "]"}], ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+             RowBox[{"Total", "[", 
+              RowBox[{"Counts", "[", 
+               RowBox[{"Values", "[", 
+                RowBox[{"$Failed", "[", 
+                 RowBox[{
+                  RowBox[{"Select", "[", 
+                   RowBox[{
+                    RowBox[{"#\"car_type\"", "\[Equal]", "value"}], "&"}], 
+                   "]"}], ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], "]"}]],
+             "]"}], "]"}], 
+          RowBox[{"Total", "[", 
+           RowBox[{"Counts", "[", 
+            RowBox[{"Values", "[", 
+             FractionBox[
+              RowBox[{"Counts", "[", 
+               RowBox[{"Values", "[", 
+                RowBox[{"$Failed", "[", 
+                 RowBox[{
+                  RowBox[{"Select", "[", 
+                   RowBox[{
+                    RowBox[{"#\"car_type\"", "\[Equal]", "value"}], "&"}], 
+                   "]"}], ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+              RowBox[{"Total", "[", 
+               RowBox[{"Counts", "[", 
+                RowBox[{"Values", "[", 
+                 RowBox[{"$Failed", "[", 
+                  RowBox[{
+                   RowBox[{"Select", "[", 
+                    RowBox[{
+                    RowBox[{"#\"car_type\"", "\[Equal]", "value"}], "&"}], 
+                    "]"}], ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+               "]"}]], "]"}], "]"}], "]"}]]}], "}"}]}], "]"}], "}"}]}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.935761633581167*^9, {3.9357617837858925`*^9, 3.935761794773409*^9}, 
+   3.936032276752922*^9, 3.9360327080178394`*^9, 3.93603274641967*^9, 
+   3.9360391221979713`*^9, 3.9360391617334538`*^9, 3.936191288612732*^9},
+ CellLabel->"Out[30]=",ExpressionUUID->"a25edf45-d5f6-3e44-b01d-f312ee4f4dc1"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"#", ",", 
+     RowBox[{"N", "[", "#", "]"}]}], "}"}], "&"}], "@", 
+  RowBox[{"calculateEntropy", "[", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"\"\<Data\>\"", "->", "data"}], ",", 
+     RowBox[{"\"\<Attribute\>\"", "->", "\"\<shirt_size\>\""}], ",", 
+     RowBox[{"\"\<outcome\>\"", "->", "\"\<class\>\""}]}], "|>"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.93576156576145*^9, 3.935761641823551*^9}, {
+   3.935761787012972*^9, 3.935761791008127*^9}, 3.936032279394785*^9, 
+   3.9360326963046913`*^9},
+ CellLabel->"In[31]:=",ExpressionUUID->"086b1263-e9cc-b549-8171-6351d3200424"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"shirt_size\\\\\\\"\\\"}], \\\"]\\\
+\"}]\\) is not a valid Association or a list of rules.\"", 2, 31, 100, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191288746706*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"b36e2460-1133-9a4f-81d8-68b73de2f010"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"shirt_size\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 31, 101, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912888169785`*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"05645359-0bd2-914b-a1cf-c2ee061e0e18"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"shirt_size\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 31, 102, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912888972473`*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"4373a2b3-4ae3-f941-a13f-4403e828e2f4"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"All\\\", \\\",\\\", \\\"\\\\\\\"shirt_size\\\\\\\"\\\"}], \\\"]\\\
+\"}], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"All\\\", \\\",\\\", \
+\\\"\\\\\\\"shirt_size\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \
+\\\"]\\\"}]]\\) is not a valid Association or a list of rules.\"", 2, 31, 103,
+    25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912889647694`*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"ee7bcb4a-cea5-3248-a096-306dd6b7cbfd"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \\\"\\\\\\\"shirt_size\\\\\\\"\\\
+\"}], \\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 31,
+    104, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191289037735*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"6ac4f715-b0ce-794f-a7d7-383b1dbff826"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Values\\\", \\\"::\\\", \
+\\\"invrl\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 31, 105, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191289109703*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"ecdc9590-36d3-f14f-beeb-2d37eaf17d16"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "iterb", 
+   "\"Iterator \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"value\\\", \\\",\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \\\"\\\\\\\"shirt_size\\\\\\\"\\\
+\"}], \\\"]\\\"}], \\\"]\\\"}]}], \\\"}\\\"}]\\) does not have appropriate \
+bounds.\"", 2, 31, 106, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191289186716*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"8dfff1cf-dd46-6044-91f5-c5d7c4f978cf"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Table", "iterb", 
+   "\"Iterator \\!\\(\\*RowBox[{\\\"{\\\", RowBox[{\\\"value\\\", \\\",\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \\\"\\\\\\\"shirt_size\\\\\\\"\\\
+\"}], \\\"]\\\"}], \\\"]\\\"}]}], \\\"}\\\"}]\\) does not have appropriate \
+bounds.\"", 2, 31, 107, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.93619128926474*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"569fc5a8-534b-1840-8e24-b56a18c277ea"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{RowBox[{\\\"Select\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"#\\\\\\\"shirt_size\\\\\\\"\\\", \
+\\\"\[Equal]\\\", \\\"value\\\"}], \\\"&\\\"}], \\\"]\\\"}], \\\",\\\", \
+\\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a \
+list.\"", 2, 31, 108, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912893377724`*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"6c28f1ad-2e09-ee4b-a0f0-292c22c5438d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"Counts\\\", \\\"::\\\", \
+\\\"invl\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 31, 109, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912894118347`*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"c260f9eb-1ded-3640-b20d-eb094485284c"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NSum", "nslim", 
+   "\"Limit of summation \\!\\(\\*FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\
+\", RowBox[{\\\"Values\\\", \\\"[\\\", FractionBox[RowBox[{\\\"Counts\\\", \\\
+\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"Select\\\", \\\"[\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \
+\\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\
+\"}], RowBox[{\\\"Total\\\", \\\"[\\\", RowBox[{\\\"Counts\\\", \\\"[\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \
+\\\"]\\\"}]], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", \
+FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\
+\\\"}]], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}]]\\) is not a number.\"", 2, 31,
+    110, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191289752146*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"695c2ca4-c391-4042-96c8-2f3c7318911d"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NSum", "nslim", 
+   "\"Limit of summation \\!\\(\\*FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\
+\", RowBox[{\\\"Values\\\", \\\"[\\\", FractionBox[RowBox[{\\\"Counts\\\", \\\
+\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"Select\\\", \\\"[\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \
+\\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\
+\"}], RowBox[{\\\"Total\\\", \\\"[\\\", RowBox[{\\\"Counts\\\", \\\"[\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \
+\\\"]\\\"}]], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", \
+FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\
+\\\"}]], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}]]\\) is not a number.\"", 2, 31,
+    111, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912898290825`*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"8cf114df-e903-f74a-95f7-4d84d92fdcbb"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "NSum", "nslim", 
+   "\"Limit of summation \\!\\(\\*FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\
+\", RowBox[{\\\"Values\\\", \\\"[\\\", FractionBox[RowBox[{\\\"Counts\\\", \\\
+\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"$Failed\\\", \
+\\\"[\\\", RowBox[{RowBox[{\\\"Select\\\", \\\"[\\\", RowBox[{\\\"\
+\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \
+\\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\
+\"}], RowBox[{\\\"Total\\\", \\\"[\\\", RowBox[{\\\"Counts\\\", \\\"[\\\", \
+RowBox[{\\\"Values\\\", \\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \
+\\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\\\"}], \\\"]\\\"}], \
+\\\"]\\\"}]], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \\\"[\\\", \
+FractionBox[RowBox[{\\\"Counts\\\", \\\"[\\\", RowBox[{\\\"Values\\\", \
+\\\"[\\\", RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\
+\"}], \\\"]\\\"}], \\\"]\\\"}], RowBox[{\\\"Total\\\", \\\"[\\\", \
+RowBox[{\\\"\[LeftSkeleton]\\\", \\\"1\\\", \\\"\[RightSkeleton]\\\"}], \\\"]\
+\\\"}]], \\\"]\\\"}], \\\"]\\\"}], \\\"]\\\"}]]\\) is not a number.\"", 2, 31,
+    112, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912899017086`*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"08528cb9-9306-6841-9c73-4e4eb0e94604"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "General", "stop", 
+   "\"Further output of \\!\\(\\*StyleBox[RowBox[{\\\"NSum\\\", \\\"::\\\", \
+\\\"nslim\\\"}], \\\"MessageName\\\"]\\) will be suppressed during this \
+calculation.\"", 2, 31, 113, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191289975706*^9},
+ CellLabel->
+  "During evaluation of \
+In[31]:=",ExpressionUUID->"48aa58d6-04f7-3b48-8163-39cf28a51d7f"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"Values", "[", 
+     FractionBox[
+      RowBox[{"Counts", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"$Failed", "[", 
+         RowBox[{"All", ",", "\<\"shirt_size\"\>"}], "]"}], "]"}], "]"}], 
+      RowBox[{"Total", "[", 
+       RowBox[{"Counts", "[", 
+        RowBox[{"Values", "[", 
+         RowBox[{"$Failed", "[", 
+          RowBox[{"All", ",", "\<\"shirt_size\"\>"}], "]"}], "]"}], "]"}], 
+       "]"}]], "]"}], ".", 
+    RowBox[{"{", 
+     RowBox[{
+      UnderoverscriptBox["\[Sum]", "term", 
+       FractionBox[
+        RowBox[{"Counts", "[", 
+         RowBox[{"Values", "[", 
+          FractionBox[
+           RowBox[{"Counts", "[", 
+            RowBox[{"Values", "[", 
+             RowBox[{"$Failed", "[", 
+              RowBox[{
+               RowBox[{"Select", "[", 
+                RowBox[{
+                 RowBox[{"#\"shirt_size\"", "\[Equal]", "value"}], "&"}], 
+                "]"}], ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+           RowBox[{"Total", "[", 
+            RowBox[{"Counts", "[", 
+             RowBox[{"Values", "[", 
+              RowBox[{"$Failed", "[", 
+               RowBox[{
+                RowBox[{"Select", "[", 
+                 RowBox[{
+                  RowBox[{"#\"shirt_size\"", "\[Equal]", "value"}], "&"}], 
+                 "]"}], ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], "]"}]], 
+          "]"}], "]"}], 
+        RowBox[{"Total", "[", 
+         RowBox[{"Counts", "[", 
+          RowBox[{"Values", "[", 
+           FractionBox[
+            RowBox[{"Counts", "[", 
+             RowBox[{"Values", "[", 
+              RowBox[{"$Failed", "[", 
+               RowBox[{
+                RowBox[{"Select", "[", 
+                 RowBox[{
+                  RowBox[{"#\"shirt_size\"", "\[Equal]", "value"}], "&"}], 
+                 "]"}], ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+            RowBox[{"Total", "[", 
+             RowBox[{"Counts", "[", 
+              RowBox[{"Values", "[", 
+               RowBox[{"$Failed", "[", 
+                RowBox[{
+                 RowBox[{"Select", "[", 
+                  RowBox[{
+                   RowBox[{"#\"shirt_size\"", "\[Equal]", "value"}], "&"}], 
+                  "]"}], ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], "]"}]], 
+           "]"}], "]"}], "]"}]]], 
+      RowBox[{"-", 
+       FractionBox[
+        RowBox[{"term", " ", 
+         RowBox[{"Log", "[", "term", "]"}]}], 
+        RowBox[{"Log", "[", "2", "]"}]]}]}], "}"}]}], ",", 
+   RowBox[{
+    RowBox[{"Values", "[", 
+     FractionBox[
+      RowBox[{"Counts", "[", 
+       RowBox[{"Values", "[", 
+        RowBox[{"$Failed", "[", 
+         RowBox[{"All", ",", "\<\"shirt_size\"\>"}], "]"}], "]"}], "]"}], 
+      RowBox[{"Total", "[", 
+       RowBox[{"Counts", "[", 
+        RowBox[{"Values", "[", 
+         RowBox[{"$Failed", "[", 
+          RowBox[{"All", ",", "\<\"shirt_size\"\>"}], "]"}], "]"}], "]"}], 
+       "]"}]], "]"}], ".", 
+    RowBox[{"{", 
+     RowBox[{"NSum", "[", 
+      RowBox[{
+       RowBox[{"-", 
+        FractionBox[
+         RowBox[{"term", " ", 
+          RowBox[{"Log", "[", "term", "]"}]}], 
+         RowBox[{"Log", "[", "2", "]"}]]}], ",", 
+       RowBox[{"{", 
+        RowBox[{"term", ",", 
+         FractionBox[
+          RowBox[{"Counts", "[", 
+           RowBox[{"Values", "[", 
+            FractionBox[
+             RowBox[{"Counts", "[", 
+              RowBox[{"Values", "[", 
+               RowBox[{"$Failed", "[", 
+                RowBox[{
+                 RowBox[{"Select", "[", 
+                  RowBox[{
+                   RowBox[{"#\"shirt_size\"", "\[Equal]", "value"}], "&"}], 
+                  "]"}], ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+             RowBox[{"Total", "[", 
+              RowBox[{"Counts", "[", 
+               RowBox[{"Values", "[", 
+                RowBox[{"$Failed", "[", 
+                 RowBox[{
+                  RowBox[{"Select", "[", 
+                   RowBox[{
+                    RowBox[{"#\"shirt_size\"", "\[Equal]", "value"}], "&"}], 
+                   "]"}], ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], "]"}]],
+             "]"}], "]"}], 
+          RowBox[{"Total", "[", 
+           RowBox[{"Counts", "[", 
+            RowBox[{"Values", "[", 
+             FractionBox[
+              RowBox[{"Counts", "[", 
+               RowBox[{"Values", "[", 
+                RowBox[{"$Failed", "[", 
+                 RowBox[{
+                  RowBox[{"Select", "[", 
+                   RowBox[{
+                    RowBox[{"#\"shirt_size\"", "\[Equal]", "value"}], "&"}], 
+                   "]"}], ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+              RowBox[{"Total", "[", 
+               RowBox[{"Counts", "[", 
+                RowBox[{"Values", "[", 
+                 RowBox[{"$Failed", "[", 
+                  RowBox[{
+                   RowBox[{"Select", "[", 
+                    RowBox[{
+                    RowBox[{"#\"shirt_size\"", "\[Equal]", "value"}], "&"}], 
+                    "]"}], ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+               "]"}]], "]"}], "]"}], "]"}]]}], "}"}]}], "]"}], "}"}]}]}], 
+  "}"}]], "Output",
+ CellChangeTimes->{
+  3.935761642185114*^9, {3.935761791531681*^9, 3.9357617948883133`*^9}, 
+   3.936032280354494*^9, 3.9360327081086674`*^9, 3.9360327484782753`*^9, 
+   3.9360391223193817`*^9, 3.9360391632496166`*^9, 3.9361912900489464`*^9},
+ CellLabel->"Out[31]=",ExpressionUUID->"ed4c2358-5a98-924d-a996-3403fac49d9c"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"CalculateAttributeToSplitOnByEntropy", "[", 
+   RowBox[{"<|", 
+    RowBox[{
+     RowBox[{"\"\<Data\>\"", "->", "data_"}], ",", 
+     RowBox[{"\"\<outcome\>\"", "->", "outcome_"}]}], "|>"}], "]"}], ":=", 
+  RowBox[{"First", "[", 
+   RowBox[{"Keys", "[", 
+    RowBox[{"Sort", "[", 
+     RowBox[{"AssociationMap", "[", 
+      RowBox[{
+       RowBox[{
+        RowBox[{"calculateEntropy", "[", 
+         RowBox[{"<|", 
+          RowBox[{
+           RowBox[{"\"\<Data\>\"", "->", "data"}], ",", 
+           RowBox[{"\"\<Attribute\>\"", "->", "#"}], ",", 
+           RowBox[{"\"\<outcome\>\"", "->", "\"\<class\>\""}]}], "|>"}], 
+         "]"}], "&"}], ",", 
+       RowBox[{"DeleteCases", "[", 
+        RowBox[{
+         RowBox[{"First", "[", 
+          RowBox[{"Normal", "[", 
+           RowBox[{"data", "[", 
+            RowBox[{"DeleteDuplicates", ",", "Keys"}], "]"}], "]"}], "]"}], 
+         ",", "\"\<class\>\""}], "]"}]}], "]"}], "]"}], "]"}], 
+   "]"}]}]], "Input",
+ CellChangeTimes->{{3.936032668094494*^9, 3.936032673284733*^9}},
+ CellLabel->"In[32]:=",ExpressionUUID->"0a545df4-ef84-a440-b7fe-40788c2ddcb2"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"CalculateAttributeToSplitOnByEntropy", "[", 
+  RowBox[{"<|", 
+   RowBox[{
+    RowBox[{"\"\<Data\>\"", "->", "data"}], ",", 
+    RowBox[{"\"\<outcome\>\"", "->", "\"\<Class\>\""}]}], "|>"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.936032754904545*^9, 3.9360327699382954`*^9}},
+ CellLabel->"In[33]:=",ExpressionUUID->"c1959fe8-56df-e047-b06a-e2431ac7c909"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "AssociationMap", "invrp", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"DeleteDuplicates\\\"}]\\) is not a \
+valid Association or a list.\"", 2, 33, 114, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912901767807`*^9},
+ CellLabel->
+  "During evaluation of \
+In[33]:=",ExpressionUUID->"a72803de-2c2d-744a-921f-06d975982f73"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "AssociationMap", "invrp", 
+   "\"The argument \\!\\(\\*RowBox[{RowBox[{\\\"calculateEntropy\\\", \\\"[\\\
+\", RowBox[{\\\"Association\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\\\\\\\"Data\\\\\\\"\\\", \\\"\[Rule]\\\", \
+\\\"$Failed\\\"}], \\\",\\\", RowBox[{\\\"\\\\\\\"Attribute\\\\\\\"\\\", \\\"\
+\[Rule]\\\", \\\"#1\\\"}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"outcome\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"\\\\\\\"class\\\
+\\\\\"\\\"}]}], \\\"]\\\"}], \\\"]\\\"}], \\\"&\\\"}]\\) is not a valid \
+Association or a list.\"", 2, 33, 115, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191290254898*^9},
+ CellLabel->
+  "During evaluation of \
+In[33]:=",ExpressionUUID->"956e9f85-bb42-4c4a-9cc1-b6339fec1869"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Keys", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"AssociationMap\\\", \\\"[\\\", \
+RowBox[{\\\"DeleteDuplicates\\\", \\\",\\\", \
+RowBox[{RowBox[{\\\"calculateEntropy\\\", \\\"[\\\", \
+RowBox[{\\\"Association\\\", \\\"[\\\", \
+RowBox[{RowBox[{\\\"\\\\\\\"Data\\\\\\\"\\\", \\\"\[Rule]\\\", \
+\\\"$Failed\\\"}], \\\",\\\", RowBox[{\\\"\\\\\\\"Attribute\\\\\\\"\\\", \\\"\
+\[Rule]\\\", \\\"#1\\\"}], \\\",\\\", \
+RowBox[{\\\"\\\\\\\"outcome\\\\\\\"\\\", \\\"\[Rule]\\\", \\\"\\\\\\\"class\\\
+\\\\\"\\\"}]}], \\\"]\\\"}], \\\"]\\\"}], \\\"&\\\"}]}], \\\"]\\\"}]\\) is \
+not a valid Association or a list of rules.\"", 2, 33, 116, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.9361912903390465`*^9},
+ CellLabel->
+  "During evaluation of \
+In[33]:=",ExpressionUUID->"479615a9-1a48-de43-adf8-b6cdec8c0a90"],
+
+Cell[BoxData[
+ RowBox[{"AssociationMap", "[", 
+  RowBox[{"DeleteDuplicates", ",", 
+   RowBox[{
+    RowBox[{"calculateEntropy", "[", 
+     RowBox[{"Association", "[", 
+      RowBox[{
+       RowBox[{"\<\"Data\"\>", "\[Rule]", "$Failed"}], ",", 
+       RowBox[{"\<\"Attribute\"\>", "\[Rule]", "#1"}], ",", 
+       RowBox[{"\<\"outcome\"\>", "\[Rule]", "\<\"class\"\>"}]}], "]"}], 
+     "]"}], "&"}]}], "]"}]], "Output",
+ CellChangeTimes->{3.936032770819563*^9, 3.936039122467497*^9, 
+  3.9360391801271*^9, 3.936191290415867*^9},
+ CellLabel->"Out[33]=",ExpressionUUID->"18c0f559-3b0f-454a-bbc8-b95b8adfea5e"]
+}, Open  ]],
+
+Cell["Both gini index and entropy say split on car type.", "Text",
+ CellChangeTimes->{{3.9360327744539833`*^9, 
+  3.9360327826310673`*^9}},ExpressionUUID->"ce936e56-c462-1741-aa5a-\
+73f4a15277a1"],
+
+Cell["The entropy at the beginning is.", "Text",
+ CellChangeTimes->{{3.936032798221796*^9, 
+  3.9360328033530693`*^9}},ExpressionUUID->"1907f3d1-1662-ed47-a35b-\
+391f00eeac71"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"RelativeFrequency", "[", 
+  RowBox[{"Normal", "[", 
+   RowBox[{"Values", "[", 
+    RowBox[{"data", "[", 
+     RowBox[{"Counts", ",", "\"\<class\>\""}], "]"}], "]"}], "]"}], 
+  "]"}]], "Input",
+ CellChangeTimes->{{3.93603280453738*^9, 3.936032829182064*^9}, {
+  3.9360330217070847`*^9, 3.936033022533125*^9}},
+ CellLabel->"In[34]:=",ExpressionUUID->"78846688-0145-1d48-81ef-ed8056919a35"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Values", "invrl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"$Failed\\\", \\\"[\\\", \
+RowBox[{\\\"Counts\\\", \\\",\\\", \\\"\\\\\\\"class\\\\\\\"\\\"}], \
+\\\"]\\\"}]\\) is not a valid Association or a list of rules.\"", 2, 34, 117, 
+   25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191290487007*^9},
+ CellLabel->
+  "During evaluation of \
+In[34]:=",ExpressionUUID->"8020b56b-d6da-ac41-a4d8-27144d396dae"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"Counts\\\", \\\",\\\", \\\"\\\
+\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a list.\"", 2, 
+   34, 118, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191290603834*^9},
+ CellLabel->
+  "During evaluation of \
+In[34]:=",ExpressionUUID->"c4647267-2fbd-af4f-b85d-eb6538dfcb95"],
+
+Cell[BoxData[
+ TemplateBox[{
+  "Counts", "invl", 
+   "\"The argument \\!\\(\\*RowBox[{\\\"Values\\\", \\\"[\\\", \
+RowBox[{\\\"$Failed\\\", \\\"[\\\", RowBox[{\\\"Counts\\\", \\\",\\\", \\\"\\\
+\\\\\"class\\\\\\\"\\\"}], \\\"]\\\"}], \\\"]\\\"}]\\) is not a list.\"", 2, 
+   34, 119, 25277939993703616885, "Local"},
+  "MessageTemplate"]], "Message", "MSG",
+ CellChangeTimes->{3.936191290676771*^9},
+ CellLabel->
+  "During evaluation of \
+In[34]:=",ExpressionUUID->"bc612b0d-4753-5b40-9ba4-45c5cd5d5f66"],
+
+Cell[BoxData[
+ FractionBox[
+  RowBox[{"Counts", "[", 
+   RowBox[{"Values", "[", 
+    RowBox[{"$Failed", "[", 
+     RowBox[{"Counts", ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+  RowBox[{"Total", "[", 
+   RowBox[{"Counts", "[", 
+    RowBox[{"Values", "[", 
+     RowBox[{"$Failed", "[", 
+      RowBox[{"Counts", ",", "\<\"class\"\>"}], "]"}], "]"}], "]"}], 
+   "]"}]]], "Output",
+ CellChangeTimes->{{3.9360328210335464`*^9, 3.936032829527651*^9}, 
+   3.936033022986637*^9, 3.93619129074979*^9},
+ CellLabel->"Out[34]=",ExpressionUUID->"3cadcb09-1c4b-2d40-87d4-a829ea0fbb7b"]
+}, Open  ]]
+},
+WindowSize->{718.5, 612.75},
+WindowMargins->{{Automatic, 0}, {Automatic, 0}},
+FrontEndVersion->"14.1 for Microsoft Windows (64-bit) (July 16, 2024)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"eba53849-d1a8-f149-a390-019e3f99e5db"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[576, 22, 321, 7, 104, "Input",ExpressionUUID->"9252fbbb-f794-0a44-90c0-b2f5e29b7911"],
+Cell[900, 31, 420, 9, 51, "Output",ExpressionUUID->"b0809a1e-2922-4743-9cfc-a3f130d5544f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[1357, 45, 211, 3, 28, "Input",ExpressionUUID->"e7ebcbaf-bac1-4342-a2b7-1b6443b82902"],
+Cell[1571, 50, 676, 14, 62, "Message",ExpressionUUID->"4e81085e-f772-b042-a08f-18b95bbbede6"],
+Cell[2250, 66, 157, 2, 32, "Output",ExpressionUUID->"caae00d3-6d72-5d4a-86eb-6bd079df28b0"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2444, 73, 363, 9, 28, "Input",ExpressionUUID->"7e56fdf3-3496-1a4e-9f5d-0b3bc1ac790c"],
+Cell[2810, 84, 700, 14, 62, "Message",ExpressionUUID->"ddea6d35-d413-be48-88b0-d5b53d3fbd49"],
+Cell[3513, 100, 206, 3, 32, "Output",ExpressionUUID->"870d168b-afb4-b54f-9734-f38c89227dc4"]
+}, Open  ]],
+Cell[3734, 106, 371, 8, 46, "Input",ExpressionUUID->"22799ce0-3088-ef44-a3b4-b5e7d5ab664f"],
+Cell[4108, 116, 154, 3, 33, "Text",ExpressionUUID->"d0ca3b4e-06be-eb44-868d-1c2742723703"],
+Cell[CellGroupData[{
+Cell[4287, 123, 175, 3, 28, "Input",ExpressionUUID->"70ca30b2-ee31-3343-ad0c-78c7eb4ae794"],
+Cell[4465, 128, 245, 4, 32, "Output",ExpressionUUID->"473e0a0c-78af-d24b-be3e-d98ac87f33b8"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[4747, 137, 286, 6, 28, "Input",ExpressionUUID->"de9093ff-07c1-3345-a9e7-f1b09b22f341"],
+Cell[5036, 145, 486, 11, 26, "Message",ExpressionUUID->"4381c9bf-25b7-0c45-9901-8a158ce4e347"],
+Cell[5525, 158, 279, 5, 32, "Output",ExpressionUUID->"486915e5-e24f-2047-b52b-022067f05020"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[5841, 168, 359, 8, 28, "Input",ExpressionUUID->"39895074-6833-4f4f-a9dd-ee65cdf17245"],
+Cell[6203, 178, 480, 11, 26, "Message",ExpressionUUID->"2525b002-1f0d-dc40-b21d-ec2be4bfd9a9"],
+Cell[6686, 191, 494, 11, 26, "Message",ExpressionUUID->"f172360e-d97d-5b4c-ae1e-1eb224116801"],
+Cell[7183, 204, 494, 11, 26, "Message",ExpressionUUID->"9ff2f0f7-79f7-1545-a5dd-72b86d4367cb"],
+Cell[7680, 217, 545, 14, 49, "Output",ExpressionUUID->"7ddc9922-1c2a-bc42-8db3-eab69e4929fb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[8262, 236, 568, 14, 30, "Input",ExpressionUUID->"3b07560d-51f2-a243-b86f-18a93fa83b5c"],
+Cell[8833, 252, 481, 11, 26, "Message",ExpressionUUID->"4d6786dc-97a3-164c-b908-554fbe60a9e7"],
+Cell[9317, 265, 494, 11, 26, "Message",ExpressionUUID->"804b8a36-224c-184c-bff1-588a8faa1e76"],
+Cell[9814, 278, 496, 11, 26, "Message",ExpressionUUID->"9362dc5d-25f1-6743-84ac-6260960a35b0"],
+Cell[10313, 291, 906, 16, 41, "Message",ExpressionUUID->"69632ffd-987e-5246-be71-dabe162bb7bc"],
+Cell[11222, 309, 905, 16, 41, "Message",ExpressionUUID->"ba6840f6-e10c-4341-b0e5-5dc085b42045"],
+Cell[12130, 327, 751, 20, 49, "Output",ExpressionUUID->"944459b2-3bb6-2b42-b331-072ad2220ebb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[12918, 352, 541, 14, 30, "Input",ExpressionUUID->"36767dad-2758-e24a-a91d-28187c8e16ee"],
+Cell[13462, 368, 484, 11, 26, "Message",ExpressionUUID->"9be46f42-54c5-1940-8511-b9eac5a4bf6f"],
+Cell[13949, 381, 497, 11, 26, "Message",ExpressionUUID->"4eb52a40-6503-b043-bf8d-a3e5a4736df9"],
+Cell[14449, 394, 497, 11, 26, "Message",ExpressionUUID->"5bb837f0-48fb-8540-b4d6-fe4142df3af5"],
+Cell[14949, 407, 484, 11, 26, "Message",ExpressionUUID->"2048191d-c9c9-3e46-8ad3-b7f61f21b3f3"],
+Cell[15436, 420, 494, 11, 26, "Message",ExpressionUUID->"1c5ea807-2e6c-404b-b01f-2df848dcd06a"],
+Cell[15933, 433, 447, 10, 26, "Message",ExpressionUUID->"ac14a280-dc3a-b94a-a977-ff8d01e64b47"],
+Cell[16383, 445, 644, 16, 68, "Output",ExpressionUUID->"f0e3ddd7-50f0-8648-8cac-40fff4827ccf"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[17064, 466, 576, 15, 30, "Input",ExpressionUUID->"8e615769-2801-1349-95f1-64363ef08c90"],
+Cell[17643, 483, 484, 11, 26, "Message",ExpressionUUID->"247c267b-6bd3-b844-8143-c33efc26e210"],
+Cell[18130, 496, 497, 11, 26, "Message",ExpressionUUID->"fd159af4-55d7-904b-9615-9a970d9dbb24"],
+Cell[18630, 509, 497, 11, 26, "Message",ExpressionUUID->"b8851d27-3000-6b4e-8ea5-6b1a8c61dbf2"],
+Cell[19130, 522, 482, 11, 26, "Message",ExpressionUUID->"2f920308-b9eb-f444-ac27-b8f7ec17007a"],
+Cell[19615, 535, 495, 11, 26, "Message",ExpressionUUID->"2999491d-aad9-9a40-8869-3627f21408fc"],
+Cell[20113, 548, 451, 10, 26, "Message",ExpressionUUID->"140706fd-8b90-7d45-ac4e-4ea846b71b6b"],
+Cell[20567, 560, 677, 17, 68, "Output",ExpressionUUID->"12ceb186-bf84-0e44-b241-c307c2abc261"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[21281, 582, 616, 16, 30, "Input",ExpressionUUID->"dacb5bc2-b153-aa49-8d2d-cb553dbe72f2"],
+Cell[21900, 600, 486, 11, 26, "Message",ExpressionUUID->"f304ae80-5ee4-fe46-b7f3-2e089b48f6c7"],
+Cell[22389, 613, 497, 11, 26, "Message",ExpressionUUID->"f7cfec6f-d736-fe48-8c72-8858f147e2ca"],
+Cell[22889, 626, 499, 11, 26, "Message",ExpressionUUID->"452bcd1a-a9a4-8048-93c4-c13b034a5a08"],
+Cell[23391, 639, 484, 11, 26, "Message",ExpressionUUID->"ccd0481f-3b77-9f47-b059-bb163ef76913"],
+Cell[23878, 652, 499, 11, 26, "Message",ExpressionUUID->"36f533a7-7dae-0841-ba3c-1cff95dec12c"],
+Cell[24380, 665, 453, 10, 26, "Message",ExpressionUUID->"e8ff599f-2376-3441-b5a8-3ded67b58db8"],
+Cell[24836, 677, 832, 15, 41, "Message",ExpressionUUID->"19532a32-0e25-274d-a014-25a03e689d84"],
+Cell[25671, 694, 832, 15, 41, "Message",ExpressionUUID->"25951365-e1b8-184f-a076-eb156ee25edc"],
+Cell[26506, 711, 830, 15, 41, "Message",ExpressionUUID->"0c98c987-5297-1747-ba6c-525c7d88bab1"],
+Cell[27339, 728, 452, 10, 26, "Message",ExpressionUUID->"9829bb6f-7915-b748-9fb6-f109c6a78f64"],
+Cell[27794, 740, 826, 21, 49, "Output",ExpressionUUID->"4ef4fb69-15ce-8944-b511-760a1af8446d"]
+}, Open  ]],
+Cell[28635, 764, 176, 3, 33, "Text",ExpressionUUID->"ec11eb3f-cdcc-3042-b9f5-571035cfc48a"],
+Cell[28814, 769, 360, 9, 30, "Input",ExpressionUUID->"c82e23e9-c0bf-1a4c-93e1-35137a01229a"],
+Cell[29177, 780, 1584, 42, 142, "Input",ExpressionUUID->"a7e26fc5-3899-7246-a7d8-11b0a19ae838"],
+Cell[30764, 824, 244, 6, 33, "Text",ExpressionUUID->"e35deced-d3f2-ad48-8e63-d9571b33fe64"],
+Cell[CellGroupData[{
+Cell[31033, 834, 643, 16, 28, "Input",ExpressionUUID->"7f86e8fe-a6bc-9846-bae0-fe9c61b439f6"],
+Cell[31679, 852, 483, 11, 26, "Message",ExpressionUUID->"f7f41de5-2da8-e24a-885d-dfe342d63760"],
+Cell[32165, 865, 499, 11, 26, "Message",ExpressionUUID->"65d1ade3-6065-4544-86df-82122017ad88"],
+Cell[32667, 878, 497, 11, 26, "Message",ExpressionUUID->"3f9ce58d-cd9d-ac48-b37c-a363e670a395"],
+Cell[33167, 891, 862, 16, 41, "Message",ExpressionUUID->"d2c0aaa2-b467-c049-a24b-bed43b977d08"],
+Cell[34032, 909, 499, 11, 26, "Message",ExpressionUUID->"54f64dae-08e0-0c4a-b780-059a538d9c5f"],
+Cell[34534, 922, 454, 10, 26, "Message",ExpressionUUID->"57ef4f50-cdc2-a040-a965-b5d45554bf37"],
+Cell[34991, 934, 595, 12, 26, "Message",ExpressionUUID->"1b8a2c90-e6fb-1d48-88a4-db41990bb7ef"],
+Cell[35589, 948, 597, 12, 26, "Message",ExpressionUUID->"c380aaed-4204-ee4d-919c-a0f3de2422fb"],
+Cell[36189, 962, 740, 14, 44, "Message",ExpressionUUID->"30be4add-5bad-1a40-bc05-f1b37227b2ee"],
+Cell[36932, 978, 2847, 74, 252, "Output",ExpressionUUID->"44bfda65-3a48-bc4c-a9a0-446509c189b6"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[39816, 1057, 624, 15, 28, "Input",ExpressionUUID->"c5f679a6-929a-2c4d-ba85-15db82894d8e"],
+Cell[40443, 1074, 487, 11, 26, "Message",ExpressionUUID->"a66be5f7-5de7-634e-bb9c-220e37b3ca6c"],
+Cell[40933, 1087, 502, 11, 26, "Message",ExpressionUUID->"3f48282d-42d7-9f4d-8f88-8c48687fd805"],
+Cell[41438, 1100, 500, 11, 26, "Message",ExpressionUUID->"8e20e0e4-d63b-2040-be4b-06c3acfcfac6"],
+Cell[41941, 1113, 866, 16, 41, "Message",ExpressionUUID->"ed274212-b65f-9b4a-8a46-66610326b890"],
+Cell[42810, 1131, 500, 11, 26, "Message",ExpressionUUID->"4d75b330-bbb9-2940-a7c4-19cc6cb0e15a"],
+Cell[43313, 1144, 454, 10, 26, "Message",ExpressionUUID->"2c8519ae-7230-a64e-b839-eb452a89bd26"],
+Cell[43770, 1156, 602, 13, 26, "Message",ExpressionUUID->"bd9c9842-a0ac-b840-9cb4-01f683bb7a50"],
+Cell[44375, 1171, 604, 13, 26, "Message",ExpressionUUID->"3ba7cfc2-63b7-ef42-b2fc-ebe0b65a4410"],
+Cell[44982, 1186, 739, 14, 44, "Message",ExpressionUUID->"5f2e38b2-ba65-754a-9521-f9b6e79bb33b"],
+Cell[45724, 1202, 2853, 74, 252, "Output",ExpressionUUID->"33793abc-606a-1849-9164-d714229788bb"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[48614, 1281, 618, 15, 47, "Input",ExpressionUUID->"c552846a-fd04-3a40-a49e-ebef9684ab66"],
+Cell[49235, 1298, 489, 11, 26, "Message",ExpressionUUID->"4998d4de-c0b9-2f4f-b9b9-bff6cc9b90ce"],
+Cell[49727, 1311, 504, 11, 26, "Message",ExpressionUUID->"b3555b01-59da-4845-b55f-2e655d356eb8"],
+Cell[50234, 1324, 502, 11, 26, "Message",ExpressionUUID->"d41968cc-a21c-a24f-bb4d-349d2251d0e1"],
+Cell[50739, 1337, 870, 16, 41, "Message",ExpressionUUID->"0cbc71a7-6e52-4741-9551-d910af93538e"],
+Cell[51612, 1355, 502, 11, 26, "Message",ExpressionUUID->"6cd99ea1-c43a-1842-b99c-bf9a90f37809"],
+Cell[52117, 1368, 454, 10, 26, "Message",ExpressionUUID->"2f1e0321-b2cc-0547-aab3-bf9027f556c7"],
+Cell[52574, 1380, 600, 12, 26, "Message",ExpressionUUID->"3abd905e-71e4-c54a-ae9d-0ee9288930cb"],
+Cell[53177, 1394, 602, 12, 26, "Message",ExpressionUUID->"04525cfd-7552-3147-88ec-3d71e979d7c5"],
+Cell[53782, 1408, 743, 14, 44, "Message",ExpressionUUID->"a5df45f6-8d13-4844-ad6d-8c571b62ff3e"],
+Cell[54528, 1424, 2871, 74, 252, "Output",ExpressionUUID->"29c6467f-6d8a-4448-8565-f27f92342d4e"]
+}, Open  ]],
+Cell[57414, 1501, 200, 3, 33, "Text",ExpressionUUID->"a3b4317a-3473-8d40-83c9-3c1ac411c6b0"],
+Cell[57617, 1506, 1075, 28, 123, "Input",ExpressionUUID->"1defd6d3-aa38-ac4f-99d6-909235577cbf"],
+Cell[CellGroupData[{
+Cell[58717, 1538, 314, 7, 28, "Input",ExpressionUUID->"d010099c-7335-b745-9dc3-cff37f7ce5a8"],
+Cell[59034, 1547, 401, 9, 26, "Message",ExpressionUUID->"c063ae61-ad26-3943-9dbb-84f41b6a3ce5"],
+Cell[59438, 1558, 771, 15, 44, "Message",ExpressionUUID->"ba66e6c9-2e68-9146-97eb-ba6b072212d6"],
+Cell[60212, 1575, 878, 17, 45, "Message",ExpressionUUID->"d899b63f-7fc8-194d-b556-8569b0f4eb70"],
+Cell[61093, 1594, 581, 13, 51, "Output",ExpressionUUID->"8ca29510-be67-0244-a96f-38e587f94867"]
+}, Open  ]],
+Cell[61689, 1610, 276, 6, 55, "Text",ExpressionUUID->"94263013-f988-5b47-818f-5fdc3d00dca5"],
+Cell[61968, 1618, 632, 16, 47, "Input",ExpressionUUID->"5e15c726-d677-844d-b9a7-fe59ea140051"],
+Cell[CellGroupData[{
+Cell[62625, 1638, 275, 5, 28, "Input",ExpressionUUID->"f8712c3d-141a-ac45-9183-9a90b1f7ba45"],
+Cell[62903, 1645, 297, 4, 32, "Output",ExpressionUUID->"1e94f0d3-325b-dc49-9e4d-5e7825bb604b"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[63237, 1654, 492, 13, 28, "Input",ExpressionUUID->"3ebfb792-7ae2-c44c-8ec5-63d39294de1b"],
+Cell[63732, 1669, 314, 7, 45, "Output",ExpressionUUID->"ae495a2d-19b2-8d40-ab65-3d8ec6753b1f"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[64083, 1681, 464, 12, 28, "Input",ExpressionUUID->"30e2cb4e-5f48-2c44-8a9b-5cf9d4146727"],
+Cell[64550, 1695, 351, 9, 46, "Output",ExpressionUUID->"faa168d6-f18c-614e-81a8-4e12b7f2f494"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[64938, 1709, 508, 14, 28, "Input",ExpressionUUID->"c43284a0-461e-9044-ade2-fec8dd60d32c"],
+Cell[65449, 1725, 229, 4, 32, "Output",ExpressionUUID->"74b7f615-5d19-7b4c-8641-7bf0556e513e"]
+}, Open  ]],
+Cell[65693, 1732, 275, 6, 33, "Text",ExpressionUUID->"61fed40f-137f-da4d-a26c-2b82b8af7935"],
+Cell[CellGroupData[{
+Cell[65993, 1742, 465, 10, 28, "Input",ExpressionUUID->"6b5f38bd-6311-0d48-9aa8-af12ebedb85e"],
+Cell[66461, 1754, 484, 11, 26, "Message",ExpressionUUID->"2e916133-7c2f-ff44-909f-69c2e9ff728d"],
+Cell[66948, 1767, 573, 12, 26, "Message",ExpressionUUID->"b4b11a3d-7862-554c-9f26-f8c041094c15"],
+Cell[67524, 1781, 469, 9, 32, "Output",ExpressionUUID->"23989240-209e-154c-a87f-32f51e5ff5cd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[68030, 1795, 409, 10, 28, "Input",ExpressionUUID->"157d1b8d-4ef1-f740-9f95-2d47fdc09fd1"],
+Cell[68442, 1807, 486, 11, 26, "Message",ExpressionUUID->"0547289c-1dc9-7343-b19a-d8d85953a29c"],
+Cell[68931, 1820, 573, 12, 26, "Message",ExpressionUUID->"f61c9b54-30a9-be4d-b895-81e527d25de3"],
+Cell[69507, 1834, 337, 7, 32, "Output",ExpressionUUID->"4df2cb24-6961-4744-aefe-ea345ae1349a"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[69881, 1846, 373, 11, 45, "Input",ExpressionUUID->"0c3c56c4-3a85-ef49-b9f3-4ec8df839942"],
+Cell[70257, 1859, 191, 2, 32, "Output",ExpressionUUID->"d2925bc5-3d9c-af40-8ee4-1ab796763078"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[70485, 1866, 434, 8, 28, "Input",ExpressionUUID->"1208152d-8be2-fd41-9110-903f51cd5b9e"],
+Cell[70922, 1876, 486, 11, 26, "Message",ExpressionUUID->"663a6dae-cfa2-f945-9470-a44cc2f4fb1a"],
+Cell[71411, 1889, 499, 11, 26, "Message",ExpressionUUID->"4e470129-97ef-6648-bebb-03ce84380b22"],
+Cell[71913, 1902, 497, 11, 26, "Message",ExpressionUUID->"0902a0fe-c6f1-3a45-a24a-fa7ccece7f1d"],
+Cell[72413, 1915, 499, 11, 26, "Message",ExpressionUUID->"440b9444-5084-6043-9fa2-65c84ff61ef7"],
+Cell[72915, 1928, 451, 10, 26, "Message",ExpressionUUID->"58ee401e-dd7a-714b-8588-eec80c93be55"],
+Cell[73369, 1940, 898, 22, 68, "Output",ExpressionUUID->"55f94de0-03fc-6244-846b-b4f69347f5d1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[74304, 1967, 219, 3, 28, "Input",ExpressionUUID->"67532245-4c2a-4c47-a2b2-d01c0aa68ec4"],
+Cell[74526, 1972, 14152, 338, 190, "Output",ExpressionUUID->"00e39153-dad9-ab4d-bbfd-57e5c71416ef"]
+}, Open  ]],
+Cell[88693, 2313, 1651, 43, 142, "Input",ExpressionUUID->"04f0a6a7-ec27-3e4f-a40e-251c908f0045"],
+Cell[CellGroupData[{
+Cell[90369, 2360, 676, 16, 47, "Input",ExpressionUUID->"12756330-8c3d-c248-a2f5-5a45817e8dbb"],
+Cell[91048, 2378, 486, 11, 26, "Message",ExpressionUUID->"2a3bfeb7-b6f4-4c40-8b36-e79795bf4a07"],
+Cell[91537, 2391, 499, 11, 26, "Message",ExpressionUUID->"b88bdfad-b61e-ef49-a47e-3a2d5b5700cc"],
+Cell[92039, 2404, 499, 11, 26, "Message",ExpressionUUID->"f2f2519a-693d-154d-b6e3-561c249d9cc0"],
+Cell[92541, 2417, 862, 16, 41, "Message",ExpressionUUID->"60458cad-afd0-c44e-ab33-8abebc81b690"],
+Cell[93406, 2435, 496, 11, 26, "Message",ExpressionUUID->"df26f861-e092-924c-9846-a56d4e71a42b"],
+Cell[93905, 2448, 454, 10, 26, "Message",ExpressionUUID->"198f5ad3-d93e-b44c-a081-10a77bff48f1"],
+Cell[94362, 2460, 595, 12, 26, "Message",ExpressionUUID->"2226f95a-e231-094c-a44b-e31bbcc278e0"],
+Cell[94960, 2474, 595, 12, 26, "Message",ExpressionUUID->"01d2eb84-3b74-be41-943c-0434f5aedee8"],
+Cell[95558, 2488, 636, 13, 26, "Message",ExpressionUUID->"12babb42-bf3f-d747-a79f-267e037540fb"],
+Cell[96197, 2503, 453, 10, 26, "Message",ExpressionUUID->"9236d1d8-c77c-3743-8cdb-2b520f04ad99"],
+Cell[96653, 2515, 1469, 24, 61, "Message",ExpressionUUID->"510a8828-3150-5547-b5c6-3ccdfa317ce4"],
+Cell[98125, 2541, 1469, 24, 61, "Message",ExpressionUUID->"a3248f63-d24c-4047-90eb-7c5ffd226ac1"],
+Cell[99597, 2567, 1467, 24, 61, "Message",ExpressionUUID->"cd6c600c-0b1b-034e-b958-6627cec82c5c"],
+Cell[101067, 2593, 452, 10, 26, "Message",ExpressionUUID->"e3747eeb-af6e-7944-9a27-875ad5a73558"],
+Cell[101522, 2605, 5424, 140, 248, "Output",ExpressionUUID->"6c6279cd-6faa-2b47-b0dc-cfb73f4138dd"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[106983, 2750, 659, 16, 47, "Input",ExpressionUUID->"186d41b2-c566-a54f-9f54-2a1dd8be833b"],
+Cell[107645, 2768, 489, 11, 26, "Message",ExpressionUUID->"6da1a34a-363e-7348-a431-c635b834a06a"],
+Cell[108137, 2781, 502, 11, 26, "Message",ExpressionUUID->"fc42d5a9-50e7-0c43-90fc-4eeab063813b"],
+Cell[108642, 2794, 502, 11, 26, "Message",ExpressionUUID->"65aac3fd-1ed2-514c-94ae-642761f4b133"],
+Cell[109147, 2807, 866, 16, 41, "Message",ExpressionUUID->"927985d9-1de4-9e4c-ab7e-6b613865b60a"],
+Cell[110016, 2825, 500, 11, 26, "Message",ExpressionUUID->"05e6e28a-1a7d-a947-96e6-d81c245cdb7b"],
+Cell[110519, 2838, 454, 10, 26, "Message",ExpressionUUID->"322a8582-cb49-d84e-8ea6-4dc981ec38bd"],
+Cell[110976, 2850, 602, 13, 26, "Message",ExpressionUUID->"d82b0f7b-7804-3d4c-86ee-3f3df9c1de9b"],
+Cell[111581, 2865, 604, 13, 26, "Message",ExpressionUUID->"f6d659de-a7c5-7b4b-bd82-3ead3b110a78"],
+Cell[112188, 2880, 637, 13, 26, "Message",ExpressionUUID->"3a2e08bd-8685-bc43-9ca7-8a427f3080c1"],
+Cell[112828, 2895, 453, 10, 26, "Message",ExpressionUUID->"0d59a04e-02b2-eb48-ae64-e7144240fa3b"],
+Cell[113284, 2907, 1467, 24, 61, "Message",ExpressionUUID->"7cec5ea9-603b-fe44-8ebb-97582d3e8451"],
+Cell[114754, 2933, 1469, 24, 61, "Message",ExpressionUUID->"fc0f5c82-74d1-3b43-9dfe-7cdff9bf079c"],
+Cell[116226, 2959, 1469, 24, 61, "Message",ExpressionUUID->"6480ac45-ba70-df41-92c2-c72b0c425ba3"],
+Cell[117698, 2985, 452, 10, 26, "Message",ExpressionUUID->"d6fc904d-636c-9b47-990e-32e3be6180c0"],
+Cell[118153, 2997, 5451, 140, 289, "Output",ExpressionUUID->"a25edf45-d5f6-3e44-b01d-f312ee4f4dc1"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[123641, 3142, 653, 16, 47, "Input",ExpressionUUID->"086b1263-e9cc-b549-8171-6351d3200424"],
+Cell[124297, 3160, 490, 11, 26, "Message",ExpressionUUID->"b36e2460-1133-9a4f-81d8-68b73de2f010"],
+Cell[124790, 3173, 505, 11, 26, "Message",ExpressionUUID->"05645359-0bd2-914b-a1cf-c2ee061e0e18"],
+Cell[125298, 3186, 505, 11, 26, "Message",ExpressionUUID->"4373a2b3-4ae3-f941-a13f-4403e828e2f4"],
+Cell[125806, 3199, 873, 16, 41, "Message",ExpressionUUID->"ee7bcb4a-cea5-3248-a096-306dd6b7cbfd"],
+Cell[126682, 3217, 503, 11, 26, "Message",ExpressionUUID->"6ac4f715-b0ce-794f-a7d7-383b1dbff826"],
+Cell[127188, 3230, 453, 10, 26, "Message",ExpressionUUID->"ecdc9590-36d3-f14f-beeb-2d37eaf17d16"],
+Cell[127644, 3242, 601, 12, 26, "Message",ExpressionUUID->"8dfff1cf-dd46-6044-91f5-c5d7c4f978cf"],
+Cell[128248, 3256, 600, 12, 26, "Message",ExpressionUUID->"569fc5a8-534b-1840-8e24-b56a18c277ea"],
+Cell[128851, 3270, 640, 13, 26, "Message",ExpressionUUID->"6c28f1ad-2e09-ee4b-a0f0-292c22c5438d"],
+Cell[129494, 3285, 454, 10, 26, "Message",ExpressionUUID->"c260f9eb-1ded-3640-b20d-eb094485284c"],
+Cell[129951, 3297, 1468, 24, 61, "Message",ExpressionUUID->"695c2ca4-c391-4042-96c8-2f3c7318911d"],
+Cell[131422, 3323, 1470, 24, 61, "Message",ExpressionUUID->"8cf114df-e903-f74a-95f7-4d84d92fdcbb"],
+Cell[132895, 3349, 1470, 24, 61, "Message",ExpressionUUID->"08528cb9-9306-6841-9c73-4e4eb0e94604"],
+Cell[134368, 3375, 451, 10, 26, "Message",ExpressionUUID->"48aa58d6-04f7-3b48-8163-39cf28a51d7f"],
+Cell[134822, 3387, 5481, 140, 288, "Output",ExpressionUUID->"ed4c2358-5a98-924d-a996-3403fac49d9c"]
+}, Open  ]],
+Cell[140318, 3530, 1146, 29, 123, "Input",ExpressionUUID->"0a545df4-ef84-a440-b7fe-40788c2ddcb2"],
+Cell[CellGroupData[{
+Cell[141489, 3563, 380, 8, 28, "Input",ExpressionUUID->"c1959fe8-56df-e047-b06a-e2431ac7c909"],
+Cell[141872, 3573, 402, 9, 26, "Message",ExpressionUUID->"a72803de-2c2d-744a-921f-06d975982f73"],
+Cell[142277, 3584, 779, 15, 44, "Message",ExpressionUUID->"956e9f85-bb42-4c4a-9cc1-b6339fec1869"],
+Cell[143059, 3601, 891, 18, 45, "Message",ExpressionUUID->"479615a9-1a48-de43-adf8-b6cdec8c0a90"],
+Cell[143953, 3621, 604, 13, 51, "Output",ExpressionUUID->"18c0f559-3b0f-454a-bbc8-b95b8adfea5e"]
+}, Open  ]],
+Cell[144572, 3637, 196, 3, 33, "Text",ExpressionUUID->"ce936e56-c462-1741-aa5a-73f4a15277a1"],
+Cell[144771, 3642, 176, 3, 33, "Text",ExpressionUUID->"1907f3d1-1662-ed47-a35b-391f00eeac71"],
+Cell[CellGroupData[{
+Cell[144972, 3649, 411, 9, 28, "Input",ExpressionUUID->"78846688-0145-1d48-81ef-ed8056919a35"],
+Cell[145386, 3660, 488, 11, 26, "Message",ExpressionUUID->"8020b56b-d6da-ac41-a4d8-27144d396dae"],
+Cell[145877, 3673, 503, 11, 26, "Message",ExpressionUUID->"c4647267-2fbd-af4f-b85d-eb6538dfcb95"],
+Cell[146383, 3686, 503, 11, 26, "Message",ExpressionUUID->"bc612b0d-4753-5b40-9ba4-45c5cd5d5f66"],
+Cell[146889, 3699, 574, 14, 68, "Output",ExpressionUUID->"3cadcb09-1c4b-2d40-87d4-a829ea0fbb7b"]
+}, Open  ]]
+}
+]
+*)
+
